@@ -267,12 +267,7 @@ export const details: Record<number, ShipInfo> = {
     obtain: "Clear the limited time quest during 2nd Anniversary",
     cola: [0, 1000],
     superCola: [0, 0],
-    effect: ["일당의 공격력을 1.2배로 만든다"],
-    specialEffect1: "",
-    specialEffect2: "",
-    modification: {
-
-    }
+    effect: ["일당의 공격력을 1.2배로 만든다"]
   },
   19: {
     name: "태양의 해적단선",
@@ -328,12 +323,7 @@ export const details: Record<number, ShipInfo> = {
     obtain: "Clear the limited time Marineford Event Quest",
     cola: [0, 1],
     superCola: [0, 0],
-    effect: ["일당의 체력을 1.3배로 만든다"],
-    specialEffect1: "",
-    specialEffect2: "",
-    modification: {
-
-    }
+    effect: ["일당의 체력을 1.3배로 만든다"]
   },
   23: {
     name: "가프의 군함",
@@ -372,12 +362,7 @@ export const details: Record<number, ShipInfo> = {
     obtain: "lear the limited time Holiday event quest.",
     cola: [0, 1],
     superCola: [0, 0],
-    effect: ["코스트 20 이하 캐릭터의 공격력이 1.2배가 된다"],
-    specialEffect1: "",
-    specialEffect2: "",
-    modification: {
-
-    }
+    effect: ["코스트 20 이하 캐릭터의 공격력이 1.2배가 된다"]
   },
   26: {
     name: "사우전드 써니호 - 코팅선",
@@ -452,36 +437,21 @@ export const details: Record<number, ShipInfo> = {
     superCola: [0, 0],
     effect: ["사격형 캐릭터의 공격력을 1.2배로 만든다"],
     cd: [16],
-    special: ["적 전체의 공격을 1턴 지연시킨다"],
-    specialEffect1: "",
-    specialEffect2: "",
-    modification: {
-
-    }
+    special: ["적 전체의 공격을 1턴 지연시킨다"]
   },
   31: {
     name: "사우전드 써니호",
     obtain: "",
     cola: [0, 1],
     superCola: [0, 0],
-    effect: ["일당의 공격력을 1.2배로 만든다"],
-    specialEffect1: "",
-    specialEffect2: "",
-    modification: {
-
-    }
+    effect: ["일당의 공격력을 1.2배로 만든다"]
   },
   32: {
     name: "사우전드 써니호 - 스페셜 기념 모델",
     obtain: "Clear the limited time quest during 3rd anniversary.",
     cola: [0, 1],
     superCola: [0, 0],
-    effect: ["일당의 공격력을 1.2배로 만든다"],
-    specialEffect1: "",
-    specialEffect2: "",
-    modification: {
-
-    }
+    effect: ["일당의 공격력을 1.2배로 만든다"]
   },
   33: {
     name: "플라잉 더치맨호",
@@ -565,24 +535,14 @@ export const details: Record<number, ShipInfo> = {
     obtain: "Purchase from Rayleigh's Bazaar for 500 training points during Brook's Promise Campaign",
     cola: [0, 1],
     superCola: [0, 0],
-    effect: ["일당의 공격력을 1.2배로 만든다"],
-    specialEffect1: "",
-    specialEffect2: "",
-    modification: {
-
-    }
+    effect: ["일당의 공격력을 1.2배로 만든다"]
   },
   39: {
     name: "사우전드 써니호 - 원피스 트레저 크루즈 4주년 기념 모델",
     obtain: "Clear the limited time 4th Anniversary campaign quest",
     cola: [0, 1],
     superCola: [0, 0],
-    effect: ["일당의 공격력을 1.2배로 만든다"],
-    specialEffect1: "",
-    specialEffect2: "",
-    modification: {
-
-    }
+    effect: ["일당의 공격력을 1.2배로 만든다"]
   },
   40: {
     name: "노스트라 카스텔로 호",
@@ -636,12 +596,7 @@ export const details: Record<number, ShipInfo> = {
     obtain: "Clear the limited time 5th Anniversary campaign quest",
     cola: [0, 1],
     superCola: [0, 0],
-    effect: ["일당의 공격력을 1.2배로 만든다"],
-    specialEffect1: "",
-    specialEffect2: "",
-    modification: {
-
-    }
+    effect: ["일당의 공격력을 1.2배로 만든다"]
   },
   44: {
     name: "호에",
@@ -682,12 +637,7 @@ export const details: Record<number, ShipInfo> = {
     obtain: "Clear the limited time STAMPEDE Movie Collaboration Isle",
     cola: [0, 1],
     superCola: [0, 0],
-    effect: ["일당의 공격력을 1.2배로 만든다"],
-    specialEffect1: "",
-    specialEffect2: "",
-    modification: {
-
-    }
+    effect: ["일당의 공격력을 1.2배로 만든다"]
   },
   47: {
     name: "피스 오브 스파딜 호",
@@ -741,12 +691,7 @@ export const details: Record<number, ShipInfo> = {
     obtain: "Clear the limited-time Merry Adventure quest",
     cola: [0, 1],
     superCola: [0, 0],
-    effect: ["일당의 공격력을 1.2배로 만든다"],
-    specialEffect1: "",
-    specialEffect2: "",
-    modification: {
-
-    }
+    effect: ["일당의 공격력을 1.2배로 만든다"]
   },
   51: {
     name: "샤크 슈퍼브 호",
@@ -768,12 +713,7 @@ export const details: Record<number, ShipInfo> = {
     obtain: "Clear the limited time 6th Anniversary campaign quest",
     cola: [0, 1],
     superCola: [0, 0],
-    effect: ["일당의 공격력을 1.2배로 만든다"],
-    specialEffect1: "",
-    specialEffect2: "",
-    modification: {
-
-    }
+    effect: ["일당의 공격력을 1.2배로 만든다"]
   },
   53: {
     name: "빅토리아 펑크 호",
@@ -846,24 +786,14 @@ export const details: Record<number, ShipInfo> = {
     obtain: "Clear the limited time 7th Anniversary campaign quest",
     cola: [0, 1],
     superCola: [0, 0],
-    effect: ["일당의 공격력을 1.2배로 만든다"],
-    specialEffect1: "",
-    specialEffect2: "",
-    modification: {
-
-    }
+    effect: ["일당의 공격력을 1.2배로 만든다"]
   },
   58: {
     name: "사우전드 써니 호 - 원피스 트레저 크루즈 8주년 기념 모델",
     obtain: "Clear the limited time 8th Anniversary campaign quest",
     cola: [0, 1],
     superCola: [0, 0],
-    effect: ["일당의 공격력을 1.5배로 만들고, 일당은 [연] 슬롯도 [유리] 슬롯으로 취급한다"],
-    specialEffect1: "",
-    specialEffect2: "",
-    modification: {
-
-    }
+    effect: ["일당의 공격력을 1.5배로 만들고, 일당은 [연] 슬롯도 [유리] 슬롯으로 취급한다"]
   },
   59: {
     name: "고래상어",
@@ -885,12 +815,7 @@ export const details: Record<number, ShipInfo> = {
     obtain: "Clear the limited time 9th Anniversary campaign quest",
     cola: [0, 1],
     superCola: [0, 0],
-    effect: ["일당의 공격력을 1.5배로 만들고, PERFECT 타이밍이 약간 쉬워진다"],
-    specialEffect1: "",
-    specialEffect2: "",
-    modification: {
-
-    }
+    effect: ["일당의 공격력을 1.5배로 만들고, PERFECT 타이밍이 약간 쉬워진다"]
   },
   61: {
     name: "시키의 섬배",
@@ -957,35 +882,20 @@ export const details: Record<number, ShipInfo> = {
     obtain: "Clear the limited time 10th Anniversary campaign quest",
     cola: [0, 1],
     superCola: [0, 0],
-    effect: ["일당의 공격력을 1.5배로 만들고, PERFECT 타이밍이 쉬워진다"],
-    specialEffect1: "",
-    specialEffect2: "",
-    modification: {
-
-    }
+    effect: ["일당의 공격력을 1.5배로 만들고, PERFECT 타이밍이 쉬워진다"]
   },
   66: {
     name: "진공 로켓",
     obtain: "Purchase from Rayleigh's Bazaar for 1 training point",
     cola: [0, 1],
     superCola: [0, 0],
-    effect: ["일당의 공격력을 1.2배로 만들고, PERFECT 타이밍이 쉬워진다"],
-    specialEffect1: "",
-    specialEffect2: "",
-    modification: {
-
-    }
+    effect: ["일당의 공격력을 1.2배로 만들고, PERFECT 타이밍이 쉬워진다"]
   },
   67: {
     name: "사우전드 써니호 - 원피스 트레저 크루즈 11주년 기념 스페셜 모델",
     obtain: "Clear the limited time 11th Anniversary campaign quest",
     cola: [0, 1],
     superCola: [0, 0],
-    effect: ["일당의 공격력을 1.5배, 체력을 1.1배로 만들고, PERFECT 타이밍이 쉬워진다"],
-    specialEffect1: "",
-    specialEffect2: "",
-    modification: {
-
-    }
+    effect: ["일당의 공격력을 1.5배, 체력을 1.1배로 만들고, PERFECT 타이밍이 쉬워진다"]
   }
 };
