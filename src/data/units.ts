@@ -10,7 +10,7 @@ export const units: ShipOverview[] = [
     colaCount: 15048,
     superColaCount: 20,
     effect:
-      "Reduces Special charge time by 2 turns at start of quest, boosts crew's chance of landing on own type slot, boosts Captain's RCV by 800, boosts crew's ATK by 1.65x, HP by 1.5x, and makes it much easier to land PERFECT strikes",
+      "(수정 예정)Reduces Special charge time by 2 turns at start of quest, boosts crew's chance of landing on own type slot, boosts Captain's RCV by 800, boosts crew's ATK by 1.65x, HP by 1.5x, and makes it much easier to land PERFECT strikes",
     hasSpecial: "afterMRank5",
   },
   {

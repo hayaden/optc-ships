@@ -20,14 +20,14 @@ export const details: Record<number, ShipInfo> = {
       "Boosts Captain's RCV by 300, boosts crew's ATK by 1.5x, HP by 1.3x and makes it easier to land PERFECT strikes",
       "Boosts crew's chance of landing on own type slot, boosts Captain's RCV by 800, boosts crew's ATK by 1.65x, HP by 1.5x and makes it a much easier to land PERFECT strikes",
     ],
-    specialEffect1: "Reduces Special charge time by 1 turn at start of quest",
+    specialEffect1: "(수정 예정)Reduces Special charge time by 1 turn at start of quest",
     specialEffect2:
-      "Reduces Special charge time by 1 turn at start of quest [Special] (9 turns): Changes crew's slots to character's own type",
+      "(수정 예정)Reduces Special charge time by 1 turn at start of quest [Special] (9 turns): Changes crew's slots to character's own type",
     modification: {
       phase: [1, 2],
       effect: [
-        "Reduces Special charge time by 1 turn at start of quest, boosts crew's chance of landing on own type slot, boosts Captain's RCV by 800, boosts crew's ATK by 1.65x, HP by 1.5x, and makes it much easier to land PERFECT strikes",
-        "Reduces Special charge time by 2 turns at start of quest, boosts crew's chance of landing on own type slot, boosts Captain's RCV by 800, boosts crew's ATK by 1.65x, HP by 1.5x, and makes it much easier to land PERFECT strikes",
+        "(수정 예정)Reduces Special charge time by 1 turn at start of quest, boosts crew's chance of landing on own type slot, boosts Captain's RCV by 800, boosts crew's ATK by 1.65x, HP by 1.5x, and makes it much easier to land PERFECT strikes",
+        "(수정 예정)Reduces Special charge time by 2 turns at start of quest, boosts crew's chance of landing on own type slot, boosts Captain's RCV by 800, boosts crew's ATK by 1.65x, HP by 1.5x, and makes it much easier to land PERFECT strikes",
       ],
       cd: ["-", 9],
       special: ["-", "Changes crew's slots to character's own type"],
