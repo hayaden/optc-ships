@@ -38,7 +38,7 @@ export function ShipModificationTable<TData, TValue>({
   return (
     <>
       <h4 className="scroll-m-20 text-xl font-semibold tracking-tight mt-5 italic">
-        After modification
+        개조 후 선박 효과
       </h4>
       <div className="rounded-md border my-4">
         <Table>

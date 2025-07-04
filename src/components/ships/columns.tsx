@@ -48,7 +48,7 @@ export const shipsColumns: ColumnDef<ShipOverview>[] = [
   {
     accessorKey: "colaCount",
     meta: { displayLabel: "필요한 콜라" },
-    header: () => <div className="text-right pr-1">Cola Needed</div>,
+    header: () => <div className="text-right pr-1">필요 콜라</div>,
     cell: ({ row }) => {
       const count = parseInt(row.getValue("colaCount"));
       const formatted = new Intl.NumberFormat("en-US").format(count);
@@ -60,7 +60,7 @@ export const shipsColumns: ColumnDef<ShipOverview>[] = [
   {
     accessorKey: "superColaCount",
     meta: { displayLabel: "필요한 슈퍼콜라" },
-    header: () => <div className="text-right pr-1">Super Cola Needed</div>,
+    header: () => <div className="text-right pr-1">필요 슈퍼콜라</div>,
     cell: ({ row }) => {
       const count = parseInt(row.getValue("superColaCount"));
       const formatted = new Intl.NumberFormat("en-US").format(count);

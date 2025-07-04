@@ -28,7 +28,7 @@ export const shipDetailColumns: ColumnDef<ShipDetail>[] = [
   },
   {
     accessorKey: "superColaCount",
-    header: "Super Cola Needed",
+    header: "필요 슈퍼콜라",
     cell: ({ row }) => {
       const count = parseInt(row.getValue("superColaCount"));
       const formatted = new Intl.NumberFormat("en-US").format(count);

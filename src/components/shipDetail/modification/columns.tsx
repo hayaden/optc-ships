@@ -13,7 +13,7 @@ export const shipModificationDetailColumns: ColumnDef<ShipModificationEffect>[] 
     },
     {
       accessorKey: "effect",
-      header: () => <div className="pl-1">[Modification] Effect</div>,
+      header: () => <div className="pl-1">[개조] 선박 효과</div>,
       enableSorting: false,
       cell: ({ row }) => {
         const effectText = String(row.getValue("effect"));
@@ -45,7 +45,7 @@ export const shipModificationDetailColumns: ColumnDef<ShipModificationEffect>[] 
           <p
             className="pl-1"
             dangerouslySetInnerHTML={{
-              __html: `${cd !== "-" ? `<div>[ <b>${cd} turns</b> ]</div>` : ""} ${text}`,
+              __html: `${cd !== "-" ? `<div>[ <b>${cd} 턴</b> ]</div>` : ""} ${text}`,
             }}
           ></p>
         );
