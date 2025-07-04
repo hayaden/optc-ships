@@ -52,7 +52,7 @@ export function ShipDetail() {
 
 
 //const BASE = import.meta.env.DEV ? "/optc-ships/" : "/";
-const BASE = import.meta.env.DEV ? "/" : "/optc-ships/";
+  const BASE = "/optc-ships/";
   const modificationData = useMemo(() => {
     if (details[parseInt(shipId)].modification) {
       return flattenShipModificationData(

@@ -93,21 +93,22 @@ export function replaceAndSanitizeSpecial(text: string) {
   return text
     .replace(
       /\[THRESHOLD_DAMAGE_CUT\]/,
-      '<img class="w-5 h-5 inline" src="threshold_damagecut.png" alt="threshold damage cut" />',
+      '<img class="w-5 h-5 inline" src="/optc-ships/threshold_damagecut.png" alt="threshold damage cut" />',
     )
     .replace(
       /\[ATK_UP\]/,
-      '<img class="w-5 h-5 inline" src="atk_up.png" alt="attack up"  />',
+      '<img class="w-5 h-5 inline" src="/optc-ships/atk_up.png" alt="attack up"  />',
     )
     .replace(
       /\[EOT_HEAL\]/,
-      '<img class="w-5 h-5 inline" src="eot_heal.png" alt="eot heal"  />',
+      '<img class="w-5 h-5 inline" src="/optc-ships/eot_heal.png" alt="eot heal"  />',
     )
     .replace(
       /\[EOT_HEAL_TO_DAMAGE\]/,
-      '<img class="w-5 h-5 inline" src="heal_slot_to_damage.png" alt="eot heal slot to damage"  />',
+      '<img class="w-5 h-5 inline" src="/optc-ships/heal_slot_to_damage.png" alt="eot heal slot to damage"  />',
     );
 }
+   
 
 export function flattenShipData(shipInfo: ShipInfo) {
   const shipDetail: ShipDetail[] = [];

@@ -21,7 +21,7 @@ export const shipsColumns: ColumnDef<ShipOverview>[] = [
     header: "선박 이름",
     cell: ({ row }) => {
     //const BASE = import.meta.env.DEV ? "/optc-ships/" : "/";
-      const BASE = import.meta.env.DEV ? "/" : "/optc-ships/";
+      const BASE = "/optc-ships/";
       const shipId = String(row.getValue("id"));
       const shipName = String(row.getValue("name"));
       const shipIcon = `${BASE}${getShipThumbnail(shipId)}`;
