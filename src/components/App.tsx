@@ -2,6 +2,7 @@ import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import { Ships } from "./ships/ships";
 import { ShipDetail } from "./shipDetail/ship-detail";
 import { Toaster } from "./ui/toaster";
+import { NotFound } from "./NotFound";
 
 const router = createBrowserRouter([
   {
@@ -10,7 +11,6 @@ const router = createBrowserRouter([
       <>
         <Ships />
         <Toaster />
-        {/* Outlet needs to be inside root path to work*/}
         <Outlet />
       </>
     ),
@@ -18,6 +18,10 @@ const router = createBrowserRouter([
       {
         path: "view/:shipId",
         element: <ShipDetail />,
+      },
+      {
+        path: "*",
+        element: <NotFound />,
       },
     ],
   },

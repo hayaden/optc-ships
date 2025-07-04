@@ -22,17 +22,23 @@ import {
   shipModificationDetailColumns,
 } from "./modification";
 
-export function ShipDetail() {
-  let navigate = useNavigate();
-  const { shipId } = useParams();
+/**
+ * ⭐️ 핵심! Astro에서 base를 전달받는 props 타입 정의
+ */
+type ShipDetailProps = {
+  base: string;
+};
 
+export function ShipDetail({ base }: ShipDetailProps) {
+  const navigate = useNavigate();
+  const { shipId } = useParams();
+  console.log("✅ base props 확인:", base);
   if (!shipId) {
     return null;
   }
 
   const ship = useMemo(() => {
     const tempShip = details[parseInt(shipId)];
-
     return {
       id: shipId,
       name: tempShip.name,
@@ -46,6 +52,10 @@ export function ShipDetail() {
   const data = useMemo(() => {
     return flattenShipData(details[parseInt(shipId)]);
   }, [shipId]);
+
+
+
+const BASE = import.meta.env.DEV ? "/optc-ships/" : "/";
 
   const modificationData = useMemo(() => {
     if (details[parseInt(shipId)].modification) {
@@ -65,14 +75,18 @@ export function ShipDetail() {
         <DialogHeader className="sticky top-0 z-40 py-6 max-md:py-4 text-left bg-white dark:bg-black">
           <DialogTitle>{ship.name}</DialogTitle>
         </DialogHeader>
+
         <div className="py-3 flex justify-center">
           <img
             className="lazyload min-h-20 md:min-h-64"
             loading="lazy"
-            data-src={`/${getShipFullImage(ship.id)}`}
+            data-src={`${BASE}${getShipFullImage(shipId)}`}
             alt={ship.name}
           />
         </div>
+
+  
+
         {!!ship.obtain && (
           <blockquote className="text-center p-1 mb-1 max-md:mb-0 bg-stone-200 dark:bg-stone-800 font-light">
             <b>How to obtain:</b> {ship.obtain}

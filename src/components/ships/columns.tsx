@@ -28,7 +28,7 @@ export const shipsColumns: ColumnDef<ShipOverview>[] = [
           <img
             className="w-14 h-14 lazyload"
             loading="lazy"
-            data-src={`/${shipIcon}`}
+            data-src={`${shipIcon}`}
             alt={`${shipName} thumbnail`}
           />
           <Link
