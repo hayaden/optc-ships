@@ -51,8 +51,8 @@ export function ShipDetail() {
 
 
 
-const BASE = import.meta.env.DEV ? "/optc-ships/" : "/";
-
+//const BASE = import.meta.env.DEV ? "/optc-ships/" : "/";
+const BASE = import.meta.env.DEV ? "/" : "/optc-ships/";
   const modificationData = useMemo(() => {
     if (details[parseInt(shipId)].modification) {
       return flattenShipModificationData(
@@ -85,7 +85,7 @@ const BASE = import.meta.env.DEV ? "/optc-ships/" : "/";
 
         {!!ship.obtain && (
           <blockquote className="text-center p-1 mb-1 max-md:mb-0 bg-stone-200 dark:bg-stone-800 font-light">
-            <b>How to obtain:</b> {ship.obtain}
+            <b>획득 조건:</b> {ship.obtain}
           </blockquote>
         )}
         {!!ship.note && (
@@ -95,15 +95,12 @@ const BASE = import.meta.env.DEV ? "/optc-ships/" : "/";
         )}
         {!!ship.specialEffect1 && (
           <p className="font-light text-center text-sm text italic p-1 mb-1 max-md:mb-0 bg-stone-200 dark:bg-stone-800">
-            <b>Criteria for special effect:</b> Ship at lvl. 12 can be modified
-            to add further stat modifiers. Special effect 1 is obtained at
-            modification rank 4 or above for all HP/ATK/RCV. Special effect 2 is
-            obtained at modification rank 5 for all HP/ATK/RCV.
+            <b>특별효과 발동 조건:</b>배를 레벨 12로 만들고 배를 개조 가능, 특별효과2 = 체력, 공격력, 회복 모두 개조 효과 랭크 4 이상, 특별효과2 = 체력, 공격력, 회복 모두 개조 효과 랭크 5
           </p>
         )}
         {!!ship.specialEffect1 && (
           <blockquote className="text-center p-1 mb-1 max-md:mb-0 bg-stone-200 dark:bg-stone-800 font-light">
-            <b>Special Effect 1:</b>{" "}
+            <b>특별효과1:</b>{" "}
             <span
               dangerouslySetInnerHTML={{
                 __html: replaceAndSanitizeEffect(ship.specialEffect1),
@@ -113,7 +110,7 @@ const BASE = import.meta.env.DEV ? "/optc-ships/" : "/";
         )}
         {!!ship.specialEffect2 && (
           <blockquote className="text-center p-1 mb-1 max-md:mb-0 bg-stone-200 dark:bg-stone-800 font-light">
-            <b>Special Effect 2:</b>{" "}
+            <b>특별효과2:</b>{" "}
             <span
               dangerouslySetInnerHTML={{
                 __html: replaceAndSanitizeSpecial(

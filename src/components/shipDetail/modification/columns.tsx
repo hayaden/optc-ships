@@ -33,7 +33,7 @@ export const shipModificationDetailColumns: ColumnDef<ShipModificationEffect>[] 
     },
     {
       accessorKey: "special",
-      header: () => <div className="pl-1">[CD] Special</div>,
+      header: () => <div className="pl-1">[턴수] 필살기</div>,
       cell: ({ row }) => {
         const special = String(row.getValue("special"));
         const cd = row.getValue("cd");

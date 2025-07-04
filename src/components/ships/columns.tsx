@@ -8,7 +8,7 @@ import type { ShipOverview } from "@/types/Ship";
 export const shipsColumns: ColumnDef<ShipOverview>[] = [
   {
     accessorKey: "id",
-    header: () => <div className="text-right">Ship ID</div>,
+    header: () => <div className="text-right">선박 ID</div>,
     size: 80,
     enableGlobalFilter: false,
     cell: ({ row }) => (
@@ -18,9 +18,10 @@ export const shipsColumns: ColumnDef<ShipOverview>[] = [
   },
   {  
     accessorKey: "name",
-    header: "Name",
+    header: "선박 이름",
     cell: ({ row }) => {
-      const BASE = import.meta.env.DEV ? "/optc-ships/" : "/";
+    //const BASE = import.meta.env.DEV ? "/optc-ships/" : "/";
+      const BASE = import.meta.env.DEV ? "/" : "/optc-ships/";
       const shipId = String(row.getValue("id"));
       const shipName = String(row.getValue("name"));
       const shipIcon = `${BASE}${getShipThumbnail(shipId)}`;
@@ -46,7 +47,7 @@ export const shipsColumns: ColumnDef<ShipOverview>[] = [
   },
   {
     accessorKey: "colaCount",
-    meta: { displayLabel: "Cola count" },
+    meta: { displayLabel: "필요한 콜라" },
     header: () => <div className="text-right pr-1">Cola Needed</div>,
     cell: ({ row }) => {
       const count = parseInt(row.getValue("colaCount"));
@@ -58,7 +59,7 @@ export const shipsColumns: ColumnDef<ShipOverview>[] = [
   },
   {
     accessorKey: "superColaCount",
-    meta: { displayLabel: "Super cola count" },
+    meta: { displayLabel: "필요한 슈퍼콜라" },
     header: () => <div className="text-right pr-1">Super Cola Needed</div>,
     cell: ({ row }) => {
       const count = parseInt(row.getValue("superColaCount"));
@@ -70,7 +71,7 @@ export const shipsColumns: ColumnDef<ShipOverview>[] = [
   },
   {
     accessorKey: "effect",
-    header: "Maxed Effect",
+    header: "선박 효과 Max",
     enableSorting: false,
     cell: ({ row }) => {
       const effectText = String(row.getValue("effect"));
@@ -85,7 +86,7 @@ export const shipsColumns: ColumnDef<ShipOverview>[] = [
   },
   {
     accessorKey: "hasSpecial",
-    header: "Special",
+    header: "필살기",
     cell: ({ row }) => {
       const specialVal = row.getValue("hasSpecial");
       return specialVal === "yes" ? (

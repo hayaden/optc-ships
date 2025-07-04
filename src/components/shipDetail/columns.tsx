@@ -10,13 +10,13 @@ export const shipDetailColumns: ColumnDef<ShipDetail>[] = [
   {
     id: "colaCount.superColaCount",
     accessorKey: "colaCount",
-    header: () => <div className="text-right pr-1">Level</div>,
+    header: () => <div className="text-right pr-1">레벨</div>,
     cell: ({ row }) => <div className="text-right pr-1">{row.index + 1}</div>,
     size: 10,
   },
   {
     accessorKey: "colaCount",
-    header: () => <div className="text-right pr-1">Cola Needed</div>,
+    header: () => <div className="text-right pr-1">필요한 콜라</div>,
     cell: ({ row }) => {
       const count = parseInt(row.getValue("colaCount"));
       const formatted = new Intl.NumberFormat("en-US").format(count);
@@ -45,7 +45,7 @@ export const shipDetailColumns: ColumnDef<ShipDetail>[] = [
   },
   {
     accessorKey: "effect",
-    header: () => <div className="pl-1">Effect</div>,
+    header: () => <div className="pl-1">선박 효과</div>,
     enableSorting: false,
     cell: ({ row }) => {
       const effectText = String(row.getValue("effect"));
@@ -59,7 +59,7 @@ export const shipDetailColumns: ColumnDef<ShipDetail>[] = [
   },
   {
     accessorKey: "special",
-    header: () => <div className="pl-1">[CD] Special</div>,
+    header: () => <div className="pl-1">[턴수] 필살기</div>,
     cell: ({ row }) => {
       const special = String(row.getValue("special"));
       const cd = row.getValue("cd");
@@ -69,7 +69,7 @@ export const shipDetailColumns: ColumnDef<ShipDetail>[] = [
         <p
           className="pl-1"
           dangerouslySetInnerHTML={{
-            __html: `${cd !== "-" ? `<div>[ <b>${cd} turns</b> ]</div>` : ""} ${text}`,
+            __html: `${cd !== "-" ? `<div>[ <b>${cd} 턴</b> ]</div>` : ""} ${text}`,
           }}
         ></p>
       );

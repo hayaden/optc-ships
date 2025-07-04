@@ -120,7 +120,7 @@ export function ShipTable<TData, TValue>({
     <div>
       <div className="flex my-4 items-center">
         <span className="font-light text-xs text italic p-1 mb-1 max-md:mb-0">
-          The toggled columns will also be reflected in individual ship table.
+          토글한 컬럼 설정은 각 선박의 상세 테이블에도 적용됩니다.
         </span>
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
