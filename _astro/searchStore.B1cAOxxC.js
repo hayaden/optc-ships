@@ -1,6 +1,0 @@
-import{r as o}from"./index.ClvYZcLq.js";import{a as d}from"./button.CpvnzVnF.js";let l=[],h=(s,f)=>{let i=[],e={get(){return e.lc||e.listen(()=>{})(),e.value},l:0,lc:0,listen(n,u){return e.lc=i.push(n,u||e.l)/2,()=>{let r=i.indexOf(n);~r&&(i.splice(r,2),--e.lc||e.off())}},notify(n,u){let r=!l.length;for(let t=0;t<i.length;t+=2)l.push(i[t],i[t+1],e.value,n,u);if(r){for(let t=0;t<l.length;t+=5){let a;for(let c=t+1;!a&&(c+=5)<l.length;)l[c]<l[t+1]&&(a=l.push(l[t],l[t+1],l[t+2],l[t+3],l[t+4]));a||l[t](l[t+2],l[t+3],l[t+4])}l.length=0}},off(){},set(n){let u=e.value;u!==n&&(e.value=n,e.notify(u))},subscribe(n,u){let r=e.listen(n,u);return n(e.value),r},value:s};return e};function y(s,f,i){let e=new Set([...f,void 0]);return s.listen((n,u,r)=>{e.has(r)&&i(n,u,r)})}function p(s,f={}){let i=o.useCallback(n=>f.keys?y(s,f.keys,n):s.listen(n),[f.keys,s]),e=s.get.bind(s);return o.useSyncExternalStore(i,e,e)}/**
- * @license lucide-react v0.372.0 - ISC
- *
- * This source code is licensed under the ISC license.
- * See the LICENSE file in the root directory of this source tree.
- */const v=d("X",[["path",{d:"M18 6 6 18",key:"1bl5f8"}],["path",{d:"m6 6 12 12",key:"d8bk6v"}]]),m=h("");export{v as X,m as s,p as u};
