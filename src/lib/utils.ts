@@ -40,52 +40,64 @@ export function getShipFullImage(shipId: string) {
 export function replaceAndSanitizeEffect(text: string) {
   return text
     .replaceAll(
-      /\[?(STR|DEX|QCK|INT)\]?/g,
-      '<span class="px-1 rounded text-xs font-semibold align-text-bottom text-background $1">$1</span>',
+      /\[힘\]?/g,
+      '<span class="px-1 rounded text-xs font-semibold align-text-bottom text-background text-black STR">힘</span>',
     )
     .replaceAll(
-      /\[?PSY\]?/g,
-      '<span class="px-1 rounded text-xs font-semibold align-text-bottom text-background text-black PSY">PSY</span>',
+      /\[기\]?/g,
+      '<span class="px-1 rounded text-xs font-semibold align-text-bottom text-background text-black DEX">기</span>',
     )
     .replaceAll(
-      /\[RCV\]/g,
-      '<span class="px-1 rounded text-xs font-semibold align-text-bottom text-black RCV">RCV</span>',
+      /\[속\]?/g,
+      '<span class="px-1 rounded text-xs font-semibold align-text-bottom text-background text-black QCK">속</span>',
+    )
+        .replaceAll(
+      /\[심\]?/g,
+      '<span class="px-1 rounded text-xs font-semibold align-text-bottom text-background text-black PSY">심</span>',
     )
     .replaceAll(
-      /\[SEMLA\]/g,
-      '<span class="px-1 rounded text-xs font-semibold align-text-bottom text-white SEMLA">SEMLA</span>',
+      /\[지\]?/g,
+      '<span class="px-1 rounded text-xs font-semibold align-text-bottom text-background text-black INT">지</span>',
     )
     .replaceAll(
-      /\[WANO\]/g,
-      '<span class="px-1 rounded text-xs font-semibold align-text-bottom text-white WANO">WANO</span>',
+      /\[고기\]/g,
+      '<span class="px-1 rounded text-xs font-semibold align-text-bottom text-black RCV">고기</span>',
     )
     .replaceAll(
-      /\[RAINBOW\]/g,
-      '<span class="px-1 rounded text-xs font-semibold align-text-bottom text-background text-black RAINBOW">RAINBOW</span>',
+      /\[셈라\]/g,
+      '<span class="px-1 rounded text-xs font-semibold align-text-bottom text-white SEMLA">셈라</span>',
     )
     .replaceAll(
-      /\[EMPTY\]/g,
-      '<span class="px-1 rounded text-xs font-semibold align-text-bottom text-background EMPTY">EMPTY</span>',
+      /\[와\]/g,
+      '<span class="px-1 rounded text-xs font-semibold align-text-bottom text-white WANO">와</span>',
     )
     .replaceAll(
-      /\[BLOCK\]/g,
-      '<span class="px-1 rounded text-xs font-semibold align-text-bottom text-background BLOCK">BLOCK</span>',
+      /\[무지개\]/g,
+      '<span class="px-1 rounded text-xs font-semibold align-text-bottom text-background text-black RAINBOW">무지개</span>',
     )
     .replaceAll(
-      /\[BOMB\]/g,
-      '<span class="px-1 rounded text-xs font-semibold align-text-bottom text-background text-white BOMB">BOMB</span>',
+      /\[공백\]/g,
+      '<span class="px-1 rounded text-xs font-semibold align-text-bottom text-background EMPTY">공백</span>',
     )
     .replaceAll(
-      /\[SUPERBOMB\]/g,
-      '<span class="px-1 rounded text-xs font-semibold align-text-bottom text-background SUPERBOMB">SUPERBOMB</span>',
+      /\[방해\]/g,
+      '<span class="px-1 rounded text-xs font-semibold align-text-bottom text-background BLOCK">방해</span>',
+    )
+    .replaceAll(
+      /\[폭탄\]/g,
+      '<span class="px-1 rounded text-xs font-semibold align-text-bottom text-background text-white BOMB">폭탄</span>',
+    )
+    .replaceAll(
+      /\[강화 폭탄\]/g,
+      '<span class="px-1 rounded text-xs font-semibold align-text-bottom text-background SUPERBOMB">강화 폭탄</span>',
     )
     .replaceAll(
       /\[G\]/g,
       '<span class="px-1 rounded text-xs font-semibold align-text-bottom text-background text-black G">G</span>',
     )
     .replaceAll(
-      /\[TND\]/g,
-      '<span class="px-1 rounded text-xs font-semibold align-text-bottom text-white TND">TND</span>',
+      /\[연\]/g,
+      '<span class="px-1 rounded text-xs font-semibold align-text-bottom text-white TND">연</span>',
     );
 }
 
