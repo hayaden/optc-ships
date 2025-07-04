@@ -1,634 +1,74 @@
 import type { ShipOverview } from "@/types/Ship";
-
 import { details } from "./details";
+
 import { convertToPSTTimestamp, getPSTTimestamp } from "@/lib/utils";
 
 export const units: ShipOverview[] = [
-  {
-    id: 1,
-    name: "Dinghy",
-    colaCount: 15048,
-    superColaCount: 20,
-    effect:
-      "(수정 예정)Reduces Special charge time by 2 turns at start of quest, boosts crew's chance of landing on own type slot, boosts Captain's RCV by 800, boosts crew's ATK by 1.65x, HP by 1.5x, and makes it much easier to land PERFECT strikes",
-    hasSpecial: "afterMRank5",
-  },
-  {
-    id: 2,
-    name: "Merry Go",
-    colaCount: 15057,
-    superColaCount: 20,
-    effect:
-      "Reduces Special charge time by 1 turn at start of quest, boosts top-right character's HP by 20000, boosts crew's ATK by 1.65x, reduces crew's Bind/Despair duration by 1 turn, and makes it much easier to land PERFECT strikes",
-    hasSpecial: "afterMRank5",
-  },
-  {
-    id: 3,
-    name: "Navy Ship",
-    colaCount: 15234,
-    superColaCount: 20,
-    effect:
-      "Boosts Shooter and Fighter characters' ATK by 500, reduces crew's Paralysis duration by 1 turn, boosts crew's HP by 1.75x, boosts chance of landing on own type slot, and boosts Shooter and Fighter characters' ATK by 1.5x",
-    hasSpecial: "afterMRank5",
-  },
-  {
-    id: 4,
-    name: "Baratie",
-    colaCount: 15226,
-    superColaCount: 20,
-    effect:
-      "Reduces Special charge time by 1 turn at start of quest, boosts top-right character's HP by 10,000, boosts crew's ATK by 1.5x, boosts crew's chance of landing on [RCV] slots, changes [TND] slots into [SEMLA] slots, makes [RCV] [SEMLA] slots have matching slot effects, boosts ATK by 1.2x when characters have [RCV] [SEMLA] slots, and allows crew to obtain [RCV] [SEMLA] slots with PERFECT taps",
-    hasSpecial: "afterMRank5",
-  },
-  {
-    id: 5,
-    name: "Coffin Boat",
-    colaCount: 15328,
-    superColaCount: 20,
-    effect:
-      "Reduces Slasher characters' Special charge time by 1 turn at start of quest, boosts their ATK by 1.8x, HP by 1.75x, but reduces Captain's RCV by 700, and reduces crew's Bind duration by 1 turn",
-    hasSpecial: "afterMRank5",
-  },
-  {
-    id: 6,
-    name: "Miss Love Duck",
-    colaCount: 15202,
-    superColaCount: 20,
-    effect:
-      "Reduces Striker characters' Special charge time by 1 turn at start of quest, boosts their ATK by 1.5x, HP by 1.3x, boosts their chance of landing on own type slot, reduces damage taken by 20%, and boosts Striker characters' ATK by 600",
-    hasSpecial: "afterMRank5",
-  },
-  {
-    id: 7,
-    name: "Going Merry - Flying Model",
-    colaCount: 15233,
-    superColaCount: 20,
-    effect:
-      "Reduces Special charge time by 1 turn at start of quest, heals crew by 5,000 HP at end of turn, reduces crew's Despair duration by 2 turns, and boosts crew's ATK by 1.7x and RCV by 1.2x",
-    hasSpecial: "afterMRank5",
-  },
-  {
-    id: 8,
-    name: "Moby Dick",
-    colaCount: 15380,
-    superColaCount: 20,
-    effect:
-      "Reduces crew's Special charge time by 1 turn at start of quest, reduces HP to 50%, boosts ATK by 1.55x, HP by 1.6x, if HP is 50% or below before attacking, reduces damage taken by 20%, and if HP is 30% or below before attacking, boosts ATK by a further 1.2x",
-    hasSpecial: "afterMRank5",
-  },
-  {
-    id: 9,
-    name: "Big Top",
-    colaCount: 15202,
-    superColaCount: 20,
-    effect:
-      "Reduces Special charge time by 1 turn at start of quest, boosts ATK by 2.2x for characters with a Cost of 40 or less, boosts their HP by 1.4x, and boosts ATK by 1.6x for characters with a Cost of 41 or more",
-    hasSpecial: "no",
-  },
-  {
-    id: 10,
-    name: "Bezan Black",
-    colaCount: 15180,
-    superColaCount: 20,
-    effect:
-      "Reduces Special charge time by 1 turn at start of quest, boosts QCK characters' ATK by 1.8x, HP by 1.5x, makes crew's [STR] [DEX] slots have matching slot effects, reduces Despair duration by 1 turn, and boosts crew's chance of landing on [QCK] slots",
-    hasSpecial: "afterMRank5",
-  },
-  {
-    id: 11,
-    name: "Aokiji's Bicycle",
-    colaCount: 15309,
-    superColaCount: 20,
-    effect:
-      "Reduces Striker characters' Special charge time by 1 turn at start of quest, boosts their ATK by 1.8x, HP by 1.75x, reduces crew's Bind duration by 1 turn, and drastically reduces the chance of landing on [RCV] slots",
-    hasSpecial: "afterMRank5",
-  },
-  {
-    id: 12,
-    name: "Striker",
-    colaCount: 15240,
-    superColaCount: 20,
-    effect:
-      "Reduces Shooter characters' Special charge time by 2 turns at start of quest, boosts Shooter characters' ATK by 1.8x, HP by 1.35x, and boosts damage dealt to Ignited enemies by 1.05x",
-    hasSpecial: "afterMRank5",
-  },
-  {
-    id: 13,
-    name: "Thousand Sunny",
-    colaCount: 15188,
-    superColaCount: 20,
-    effect:
-      "Boosts crew's ATK by 1.65x, HP by 1.3x, reduces crew's ATK Down/Bind duration by 1 turn, and makes it easier to land PERFECT strikes",
-    hasSpecial: "yes",
-  },
-  {
-    id: 14,
-    name: "Dreadnaught Sabre",
-    colaCount: 15150,
-    superColaCount: 20,
-    effect:
-      "Reduces crew's Paralysis duration by 1 turn, boosts crew's HP by 1.5x, boosts Driven and Powerhouse characters' ATK by 200, boosts Driven and Powerhouse characters' ATK by 1.4x, boosts damage dealt to enemies affected by Poison, Venom, or progressive Poison by 1.2x, and deals 20,000 non-type damage to all enemies at end of turn",
-    hasSpecial: "no",
-  },
-  {
-    id: 15,
-    name: "Kuja Pirate Ship",
-    colaCount: 15242,
-    superColaCount: 20,
-    effect:
-      "Reduces Free Spirit and Shooter characters' Special charge time by 1 turn at start of quest, boosts Free Spirit and Shooter characters' ATK by 1.75x, HP by 1.4x, makes it a little easier to land PERFECT strikes, and reduces crew's decrease chain multiplier growth rate duration by 2 turns",
-    hasSpecial: "yes",
-  },
-  {
-    id: 16,
-    name: "Ark Maxim",
-    colaCount: 15234,
-    superColaCount: 20,
-    effect:
-      "Reduces QCK and PSY characters' Special charge time by 1 turn at start of quest, boosts QCK and PSY characters' ATK by 1.75x, HP by 1.4x, reduces crew's Paralysis duration by 1 turn, and heals crew by 4,000 HP at end of turn",
-    hasSpecial: "yes",
-  },
-  {
-    id: 17,
-    name: "Red Force",
-    colaCount: 15244,
-    superColaCount: 20,
-    effect:
-      "Boosts Cerebral and Shooter characters' ATK by 1.75x, HP by 1.4x, boosts chances of them landing on their own type slot, reduces crew's ATK Down duration by 1 turn, and makes it a little easier for crew to land PERFECT strikes",
-    hasSpecial: "afterMRank5",
-  },
-  {
-    id: 18,
-    name: "Thousand Sunny - 2nd Anniversary Model",
-    colaCount: 1000,
-    superColaCount: 0,
-    effect: "Boosts ATK by 1.2x",
-    hasSpecial: "no",
-  },
-  {
-    id: 19,
-    name: "Sun Pirates Ship",
-    colaCount: 15168,
-    superColaCount: 20,
-    effect:
-      "Reduces Fighter characters' Special charge time by 1 turn at start of quest, boosts Fighter characters' ATK by 1.5x, HP by 1.5x, boosts ATK a further 1.2x and HP a further 1.3x if a character's 1st class is Fighter, and makes it easier to land PERFECT strikes",
-    hasSpecial: "afterMRank5",
-  },
-  {
-    id: 20,
-    name: "Donquixote Pirates Ship",
-    colaCount: 15369,
-    superColaCount: 20,
-    effect:
-      "Reduces Driven characters' Special charge time by 1 turn at start of quest, boosts their ATK by 1.8x, HP by 1.5x, and makes it easier for Driven characters to land PERFECT strikes",
-    hasSpecial: "yes",
-  },
-  {
-    id: 21,
-    name: "Rocketman",
-    colaCount: 15228,
-    superColaCount: 20,
-    effect:
-      "Reduces Powerhouse characters' Special charge time by 1 turn at start of quest, boosts their ATK by 1.85x, cuts crew's HP by 30%, reduces crew's Paralysis duration by 1 turn, and heals HP at end of turn (more depending on number of Powerhouses in crew; up to 2500 HP)",
-    hasSpecial: "yes",
-  },
-  {
-    id: 22,
-    name: "Moby Dick - Paramount War Version",
-    colaCount: 0,
-    superColaCount: 0,
-    effect: "Boosts HP by 1.3x",
-    hasSpecial: "no",
-  },
-  {
-    id: 23,
-    name: "Garp's Battleship",
-    colaCount: 15189,
-    superColaCount: 20,
-    effect:
-      "Boosts STR and PSY characters' ATK by 1.75x, HP by 1.4x, and if crew uses a Special to launch additive chain multiplier boost (except multiplicative boost) or to set the chain multiplier, extends the duration of that effect by 1 turn",
-    hasSpecial: "afterMRank5",
-  },
-  {
-    id: 24,
-    name: "Polar Tang",
-    colaCount: 15300,
-    superColaCount: 20,
-    effect:
-      "Reduces Free Spirit and Slasher characters' Special charge time by 1 turn at start of quest, boosts their ATK by 1.6x, HP by 1.25x, makes it a little easier to land PERFECT strikes, boosts Cerebral characters' ATK by a further 1.2x, and reduces crew's Paralysis duration by 1 turn",
-    hasSpecial: "yes",
-  },
-  {
-    id: 25,
-    name: "Big Top - Grand Line Feast",
-    colaCount: 0,
-    superColaCount: 0,
-    effect: "Boosts ATK of characters with 20 cost or less by 1.2x",
-    hasSpecial: "yes",
-  },
-  {
-    id: 26,
-    name: "Thousand Sunny - Coated Vessel",
-    colaCount: 15156,
-    superColaCount: 20,
-    effect:
-      "Boosts crew's ATK by 1.65x, reduces damage taken by 20%, reduces crew's Bind duration by 2 turns, and makes it easier to land PERFECT strikes",
-    hasSpecial: "yes",
-  },
-  {
-    id: 27,
-    name: "Kizaru's Arrival Cannonball - Sabaody in Chaos",
-    colaCount: 15256,
-    superColaCount: 20,
-    effect:
-      "Boosts Shooter characters' ATK by 1.75x, HP by 1.2x, reduces their Special charge time by 2 turns at start of quest, boosts Slasher characters' ATK by 1.1x, reduces Slasher characters' Special charge time by 1 turn at start of quest, and makes it easier to land PERFECT strikes",
-    hasSpecial: "yes",
-  },
-  {
-    id: 28,
-    name: "Mister Luffy Go",
-    colaCount: 15194,
-    superColaCount: 20,
-    effect:
-      "Reduces Striker characters' Special charge time by 1 turn at start of quest, makes it a little easier to land PERFECT strikes, reduces damage taken by 10%, boosts Driven characters' ATK by 1.1x, and if 6 Striker characters are on the crew, boosts crew's ATK by a further 1.75x and HP by 1.6x",
-    hasSpecial: "yes",
-  },
-  {
-    id: 29,
-    name: "Thriller Bark",
-    colaCount: 15204,
-    superColaCount: 20,
-    effect:
-      "Reduces DEX and INT characters' Special charge time by 1 turn at start of quest, boosts chances of crew landing on their own type slot, boosts DEX and INT characters' ATK by 1.5x, HP by 1.25x, boosts Driven and Powerhouse characters' ATK by a further 1.15x, and if crew applies slot effect boosts with a Special, extends the duration of crew's slot effect boosts by 1 turn",
-    hasSpecial: "afterMRank5",
-  },
-  {
-    id: 30,
-    name: "Karasumaru",
-    colaCount: 0,
-    superColaCount: 0,
-    effect: "Boosts ATK of Shooters by 1.2x",
-    hasSpecial: "yes",
-  },
-  {
-    id: 32,
-    name: "Thousand Sunny - Special Anniversary Model",
-    colaCount: 0,
-    superColaCount: 0,
-    effect: "Boosts ATK by 1.2x",
-    hasSpecial: "no",
-  },
-  {
-    id: 33,
-    name: "Flying Dutchman",
-    colaCount: 15119,
-    superColaCount: 20,
-    effect:
-      "Reduces Special charge time by 1 turn at start of quest, boosts crew's ATK by 1.65x, HP by 1.2x, and Pirate EXP earned by 1.75x",
-    hasSpecial: "yes",
-  },
-  {
-    id: 34,
-    name: "Marshall D. Teach's Pirate Ship",
-    colaCount: 15244,
-    superColaCount: 20,
-    effect:
-      "Reduces crew's Bind duration by 1 turn, boosts crew's HP by 1.75x, reduces Special charge time by 2 turns at start of quest, and if Fighter, Slasher, Striker, and Shooter characters are on the crew, boosts crew's ATK by 1.75x, and if Driven and Powerhouse characters are on the crew, boosts crew's ATK by 1.1x",
-    hasSpecial: "no",
-  },
-  {
-    id: 35,
-    name: "Revolutionary Army Blackbirds",
-    colaCount: 15199,
-    superColaCount: 20,
-    effect:
-      "Reduces Special charge time by 1 turn at start of quest, reduces STR, DEX and QCK characters' Special charge time by a further 1 turn, boosts crew's HP by 1.4x, reduces damage taken by 10%, and if the crew has STR, DEX and QCK characters, boosts STR, DEX and QCK characters' ATK by 1.7x, and if no PSY or INT characters are on the crew, boosts STR, DEX and QCK characters' ATK by a further 1.1x",
-    hasSpecial: "afterMRank5",
-  },
-  {
-    id: 36,
-    name: "Zunesha",
-    colaCount: 15202,
-    superColaCount: 20,
-    effect:
-      "Reduces Special charge time by 1 turn at start of quest, boosts Powerhouse and Cerebral characters' ATK by 1.85x, HP by 1.5x, makes their [RCV] [TND] slots have matching slot effects, reduces crew's Special Bind duration by 1 turn, and makes it much easier to land PERFECT strikes",
-    hasSpecial: "afterMRank5",
-  },
-  {
-    id: 37,
-    name: "Sexy Foxy",
-    colaCount: 15208,
-    superColaCount: 20,
-    effect:
-      "Reduces Special charge time by 1 turn at start of quest, boosts crew's ATK by 1.5x, boosts damage dealt to delayed enemies by 1.25x, doubles Berries earned, boosts Pirate EXP earned by 1.3x, and makes it easier to land PERFECT strikes",
-    hasSpecial: "afterMRank5",
-  },
-  {
-    id: 38,
-    name: "Laboon",
-    colaCount: 0,
-    superColaCount: 0,
-    effect:
-      details[38].effect[
-        convertToPSTTimestamp() >= getPSTTimestamp("2025-04-03T00:00:00") &&
-        convertToPSTTimestamp() <= getPSTTimestamp("2025-04-21T11:59:59")
-          ? 0
-          : 1
-      ],
-    hasSpecial: "no",
-  },
-  {
-    id: 39,
-    name: "Thousand Sunny - 4th Anniversary Model",
-    colaCount: 0,
-    superColaCount: 0,
-    effect: "Boosts ATK by 1.2x",
-    hasSpecial: "no",
-  },
-  {
-    id: 40,
-    name: "Nostra Castello",
-    colaCount: 15244,
-    superColaCount: 20,
-    effect:
-      "Reduces Special charge time by 1 turn at start of quest, boosts crew's ATK by 1.6x, HP by 1.3x, boosts Driven and Shooter characters' ATK by a further 1.2x, reduces crew's ATK Down duration by 1 turn, makes it easier to land PERFECT strikes, reduces all enemies' HP by 5% at end of turn, but slightly reduces ATK depending on number of Slasher, Free Spirit, or Powerhouse classes on the crew",
-    hasSpecial: "no",
-  },
-  {
-    id: 41,
-    name: "Queen Mama Chanter",
-    colaCount: 15260,
-    superColaCount: 20,
-    effect:
-      "Reduces STR, DEX, and QCK characters' Special charge time by 1 turn at start of quest, boosts crew's chance of landing on own type slot, boosts HP by 1.5x, and makes crew's [RCV] slots into [SEMLA] slots. If Captain is a Driven or Powerhouse class, boosts STR, DEX, and QCK characters' ATK by 1.7x, if crew lands 3 PERFECT strikes in a row, boosts their ATK by approximately 1.8x, and allows STR, DEX, and QCK characters to obtain [RCV] [SEMLA] slots with PERFECT taps",
-    hasSpecial: "yes",
-  },
-  {
-    id: 42,
-    name: "Germa 66 Ship",
-    colaCount: 15202,
-    superColaCount: 20,
-    effect:
-      "Boosts crew's chance of landing on [RCV] [TND] slots and reduces crew's Special Reverse by 1 turn. If every type is on the crew, reduces Special charge time by 2 turns at start of quest, boosts crew's ATK by 1.8x, HP by 1.5x, boosts ATK a further 1.1x when character has [RCV] [TND] slots, and makes it a little easier to land PERFECT strikes",
-    hasSpecial: "no",
-  },
-  {
-    id: 43,
-    name: "Going Merry - 5th Anniversary Model",
-    colaCount: 0,
-    superColaCount: 0,
-    effect: "Boosts ATK by 1.2x",
-    hasSpecial: "no",
-  },
-  {
-    id: 44,
-    name: "Hoe",
-    colaCount: 15256,
-    superColaCount: 20,
-    effect:
-      "Reduces Special charge time by 2 turns at start of quest, boosts crew's ATK by 1.65x, makes it easier to land PERFECT strikes, doubles Pirate EXP earned, and heals crew by 2,000 HP at end of turn",
-    hasSpecial: "yes",
-  },
-  {
-    id: 45,
-    name: "Megalo",
-    colaCount: 15232,
-    superColaCount: 20,
-    effect:
-      "Reduces Special charge time by 1 turn at start of quest, reduces the duration of healing effect converted to damage effect by 1 turn, boosts crew's HP by 1.4x, and if Captain is a PSY or INT type, boosts top-row characters' ATK by 1.7x, boosts middle and bottom-row characters' ATK by 1.8x, boosts Captain's RCV by 600, and reduces damage taken by 15%",
-    hasSpecial: "yes",
-  },
-  {
-    id: 46,
-    name: "Thousand Sunny - Flying Model",
-    colaCount: 0,
-    superColaCount: 0,
-    effect: "Boosts ATK and EXP gained by 1.2x",
-    hasSpecial: "no",
-  },
-  {
-    id: 47,
-    name: "Piece of Spadille",
-    colaCount: 15232,
-    superColaCount: 20,
-    effect:
-      "Reduces Special charge time by 2 turns at start of quest, reduces crew's Despair duration by 1 turn, boosts Powerhouse, Shooter, Free Spirit and Fighter characters' HP by 1.25x and ATK by 1.6x, and boosts their ATK by approximately 1.8x if HP is 30% or below before attacking",
-    hasSpecial: "afterMRank5",
-  },
-  {
-    id: 48,
-    name: "Giant Koi",
-    colaCount: 15202,
-    superColaCount: 20,
-    effect:
-      "Reduces Special charge time by 1 turn at start of quest, boosts QCK and INT characters' ATK by 1.7x, HP by 1.35x, makes their [RCV] slots have matching slot effects, boosts their ATK by approximately 1.85x when HP is full at start of attack, heals crew by 2,000 HP at end of turn, and boosts amount of Berries earned by 3x",
-    hasSpecial: "yes",
-  },
-  {
-    id: 49,
-    name: "Grudge Dolph",
-    colaCount: 15202,
-    superColaCount: 20,
-    effect:
-      "Reduces Special charge time by 1 turn at start of quest, boosts crew's chance of landing on own type slot, reduces crew's Special Bind duration by 1 turn, boosts Slasher, Striker, and Cerebral characters' HP by 1.25x, boosts their ATK by approximately 1.75x when they have [RAINBOW], [WANO] or own type slots (1.6x otherwise) and heals crew by 2,000 HP at end of turn",
-    hasSpecial: "afterMRank5",
-  },
-  {
-    id: 50,
-    name: "Going Merry - Farewell Edition",
-    colaCount: 0,
-    superColaCount: 0,
-    effect: "Boosts ATK by 1.2x",
-    hasSpecial: "no",
-  },
-  {
-    id: 51,
-    name: "Shark Superb",
-    colaCount: 15009,
-    superColaCount: 20,
-    effect:
-      "If Captain is a STR, DEX, or QCK type, boosts crew's ATK by 2x, HP by 1.2x, reduces Special charge time by 2 turns at start of quest, makes [QCK] [DEX] slots have matching slot effects, makes it much easier to land PERFECT strikes, but reduces ATK after each turn (to a minimum of 1.75x after 5 turns)",
-    hasSpecial: "no",
-  },
-  {
-    id: 52,
-    name: "Thousand Sunny - 6th Anniversary Model",
-    colaCount: 0,
-    superColaCount: 0,
-    effect: "Boosts crew's ATK by 1.2x",
-    hasSpecial: "no",
-  },
-  {
-    id: 53,
-    name: "Victoria Punk",
-    colaCount: 15202,
-    superColaCount: 20,
-    effect:
-      "Reduces Special charge time by 1 turn at start of quest, boosts crew's HP by 1.35x, slightly boosts crew's chance of landing on [TND] slots, reduces crew's Despair duration by 1 turn, makes [BOMB] [SUPERBOMB] slots have matching slot effects, boosts crew's ATK by 1.7x, and boosts crew's ATK by approximately 2x when they have [BOMB] [SUPERBOMB] slots",
-    hasSpecial: "yes",
-  },
-  {
-    id: 54,
-    name: "Liberal Hind",
-    colaCount: 15202,
-    superColaCount: 20,
-    effect:
-      "Reduces crew's Bind duration by 1 turn, reduces Special charge time by 1 turn at start of quest, reduces PSY characters' Special charge time by a further 1 turn, boosts Captain's RCV by 500, boosts crew's HP by 1.4x, and heals crew by 1,000 HP at end of turn. If Captain is a Free Spirit, Slasher, or Cerebral class, boosts crew's ATK by 1.6x. If 6 PSY characters are on the crew, boosts ATK a further 1.2x",
-    hasSpecial: "yes",
-  },
-  {
-    id: 55,
-    name: "Nostra Castello (Amphibious)",
-    colaCount: 15202,
-    superColaCount: 20,
-    effect:
-      "Reduces Special charge time by 2 turns at start of quest, boosts STR, PSY, and INT characters' ATK by 1.65x, HP by 1.4x, reduces damage taken by 10%, boosts their ATK by approximately 1.85x when HP is full or 30% or below at start of attack, heals crew by 2,000 HP at end of turn, and makes it a little easier for them to land PERFECT strikes",
-    hasSpecial: "no",
-  },
-  {
-    id: 56,
-    name: "Oro Jackson",
-    colaCount: 15202,
-    superColaCount: 20,
-    effect:
-      "Reduces Special charge time by 1 turn, boosts Free Spirit and Slasher characters' ATK by 150, boosts their ATK by 1.7x, HP by 1.3x, makes their [RCV] [TND] slots have matching slot effects, makes it much easier to land PERFECT strikes, boosts QCK and PSY characters' ATK by a further 1.1x, and heals crew by 1,000 HP at end of turn",
-    hasSpecial: "yes",
-  },
-  {
-    id: 57,
-    name: "Thousand Sunny - 7th Anniversary Model",
-    colaCount: 0,
-    superColaCount: 0,
-    effect: "Boosts crew's ATK by 1.2x",
-    hasSpecial: "no",
-  },
-  {
-    id: 58,
-    name: "Thousand Sunny - 8th Anniversary Model",
-    colaCount: 0,
-    superColaCount: 0,
-    effect:
-      "Boosts crew's ATK by 1.5x and makes their [TND] slots have matching slot effects",
-    hasSpecial: "no",
-  },
-  {
-    id: 59,
-    name: "Whale Shark",
-    colaCount: 15202,
-    superColaCount: 20,
-    effect:
-      "Reduces Special charge time by 2 turns at start of quest, boosts crew's ATK by 1.75x, boosts top-right character's HP by 20,000, reduces crew's Paralysis duration by 1 turn, makes crew's [TND] [RCV] slots have matching slot effects, makes it easier to land PERFECT strikes, and boosts Pirate EXP earned by 1.5x",
-    hasSpecial: "no",
-  },
-  {
-    id: 60,
-    name: "Thousand Sunny - 9th Anniversary Model",
-    colaCount: 0,
-    superColaCount: 0,
-    effect:
-      "Boosts crew's ATK by 1.5x and makes it a little easier to land PERFECT strikes",
-    hasSpecial: "no",
-  },
-  {
-    id: 61,
-    name: "Shiki's Island Ship",
-    colaCount: 15500,
-    superColaCount: 20,
-    effect:
-      "Reduces Special charge time by 2 turns at start of quest, boosts DEX, INT, and QCK characters' ATK by 1.65x, HP by 1.45x, slightly boosts chance of landing on [RCV] slots, reduces crew's Despair duration by 1 turn, and if HP is full or 30% or below at start of attack, boosts DEX, INT, and QCK characters' ATK by approximately 1.85x",
-    hasSpecial: "no",
-  },
-  {
-    id: 62,
-    name: "White Tiger",
-    colaCount: 15500,
-    superColaCount: 20,
-    effect:
-      "Reduces Special charge time by 1 turn at start of quest, reduces Shooter characters' Special charge time by a further 1 turn, boosts Shooter characters' ATK by 1.9x, HP by 1.25x, reduces crew's Paralysis duration by 1 turn, makes crew's [PSY] [INT] slots have matching slot effects, and makes it much easier to land PERFECT strikes",
-    hasSpecial: "no",
-  },
-  {
-    id: 63,
-    name: "Catapult",
-    colaCount: 15500,
-    superColaCount: 20,
-    effect:
-      "Reduces Special charge time by 2 turns at start of quest, boosts Fighter characters' ATK by 200, boosts STR, QCK, and INT characters' ATK by 1.75x, HP by 1.25x, boosts top-right character's ATK by a further 1.25x, makes crew's [PSY] [DEX] slots have matching slot effects, and makes it easier to land PERFECT strikes",
-    hasSpecial: "afterMRank5",
-  },
-  {
-    id: 64,
-    name: "Gran Tesoro",
-    colaCount: 15500,
-    superColaCount: 20,
-    effect:
-      "Reduces Special charge time by 1 turn at start of quest, boosts crew's ATK by 1.7x, HP by 1.4x, boosts their ATK by approximately 2x when they have [G] or [RAINBOW] slots, reduces crew's Bind/ATK Down duration by 1 turn, boosts amount of Berries earned by 3x, and if every class is on the crew and crew launches a Special to set the chain multiplier, extends the duration of the effect by 1 turn",
-    hasSpecial: "no",
-  },
-  /**
-   * p1: 2024-04-27T19:00 -> 2024-05-11T23:59:59
-   * p2: 2024-05-12T00:00 -> 2024-05-12T11:59:59
-   * p3: 2024-05-12T12:00 -> 2024-05-11T23:59:59
-   * p4: 2024-05-13T00:00 -> 2024-06-29T18:59:59
-   */
-  {
-    id: 65,
-    name: "Thousand Sunny - 10th Anniversary Special Model",
-    colaCount: 0,
-    superColaCount: 0,
-    effect:
-      details[65].effect[
-        convertToPSTTimestamp() <= getPSTTimestamp("2024-05-11T23:59:59")
-          ? 0
-          : convertToPSTTimestamp() <= getPSTTimestamp("2024-05-12T11:59:59")
-            ? 1
-            : convertToPSTTimestamp() <= getPSTTimestamp("2024-05-11T23:59:59")
-              ? 2
-              : convertToPSTTimestamp() <=
-                  getPSTTimestamp("2024-06-29T18:59:59")
-                ? 3
-                : 4
-      ],
-    hasSpecial:
-      convertToPSTTimestamp() >= getPSTTimestamp("2024-05-12T00:00") &&
-      convertToPSTTimestamp() <= getPSTTimestamp("2024-06-29T18:59:59")
-        ? "yes"
-        : "no",
-  },
-  {
-    id: 66,
-    name: "Vacuum Rocket",
-    colaCount: 0,
-    superColaCount: 0,
-    effect:
-      "Boosts crew's ATK by 1.2x, and makes it easier to land PERFECT strikes",
-    hasSpecial: "no",
-  },
-  /**
-   * p1: 2025-04-28T19:00 -> 2025-05-11T23:59:59
-   * p2: 2025-05-12T00:00 -> 2025-05-12T11:59:59
-   * p3: 2025-05-12T12:00 -> 2025-05-12T23:59:59
-   * p4: 2025-05-13T00:00 -> 2025-06-27T18:59:59
-   */
-  {
-    id: 67,
-    name: "Thousand Sunny - 11th Anniversary Special Model",
-    colaCount: 0,
-    superColaCount: 0,
-    effect:
-      details[67].effect[
-        convertToPSTTimestamp() <= getPSTTimestamp("2025-04-28T18:59:59") ||
-        convertToPSTTimestamp() >= getPSTTimestamp("2025-06-27T18:59:59")
-          ? 4
-          : convertToPSTTimestamp() <= getPSTTimestamp("2025-05-11T23:59:59")
-            ? 0
-            : convertToPSTTimestamp() <= getPSTTimestamp("2024-05-12T11:59:59")
-              ? 1
-              : convertToPSTTimestamp() <=
-                  getPSTTimestamp("2024-05-12T23:59:59")
-                ? 2
-                : 3
-      ],
-    hasSpecial: "no",
-  },
+  { id: 1, name: "통통배", colaCount: 15048, superColaCount: 20, effect: "모험 시작 시 필살기 턴을 2턴 단축하고, 일당의 속성 일치 슬롯의 출현율이 상승하며, 선장의 회복력을 800 올리고, 일당의 공격력을 1.65배, 체력을 1.5배로 만들며, PERFECT 타이밍이 상당히 쉬워진다", hasSpecial: "afterMRank5" },
+  { id: 2, name: "고잉 메리호", colaCount: 15057, superColaCount: 20, effect: "모험 시작 시 필살기 턴을 1턴 단축하고, 모험 시작 시 우측 상단 캐릭터의 체력을 20000 올리며, 일당의 공격력을 1.65배로 만들고, 일당은 봉쇄, 선장효과 무효 상태를 1턴 회복하며, PERFECT 타이밍이 상당히 쉬워진다", hasSpecial: "afterMRank5" },
+  { id: 3, name: "해군선", colaCount: 15234, superColaCount: 20, effect: "사격형과 격투형 캐릭터의 공격력을 500 올리고, 일당은 마비 상태를 1턴 회복하며, 일당의 체력을 1.75배로 만들고, 속성 일치 슬롯 출현율이 상승하며, 사격형과 격투형 캐릭터의 공격력을 1.5배로 만든다", hasSpecial: "afterMRank5" },
+  { id: 4, name: "발라티에", colaCount: 15226, superColaCount: 20, effect: "모험 시작 시 필살기 턴을 1턴 단축하고, 모험 시작 시 우측 상단 캐릭터의 체력을 10000 올리며, 일당의 공격력을 1.5배로 만들고, [고기] 슬롯 출현율이 상승하며, [연] 슬롯을 [셈라] 슬롯으로 바꾼다. [고기][셈라] 슬롯도 [유리] 슬롯으로 취급하고, [고기][셈라] 슬롯이 나온 캐릭터의 공격력을 1.2배 더 상승시키며, PERFECT 공격으로도 [고기][셈라]를 얻을 수 있다", hasSpecial: "afterMRank5" },
+  { id: 5, name: "관선", colaCount: 15328, superColaCount: 20, effect: "모험 시작 시 참격형 캐릭터의 필살기 턴을 1턴 단축하고, 공격력을 1.8배, 체력을 1.75배로 만들며, 선장의 회복력을 700 낮추고, 일당의 봉쇄 상태를 1턴 회복한다", hasSpecial: "afterMRank5" },
+  { id: 6, name: "Miss 러브 덕호", colaCount: 15202, superColaCount: 20, effect: "모험 시작 시 타격형 캐릭터의 필살기 턴을 1턴 단축하고, 공격력을 1.5배, 체력을 1.3배로 만들며, 타격형 캐릭터의 속성 일치 슬롯의 출현율이 상승하고, 받는 데미지를 20% 감소시키며, 타격형 캐릭터의 공격력을 600 올린다", hasSpecial: "afterMRank5" },
+  { id: 7, name: "고잉 메리호 - 플라잉 모델", colaCount: 15233, superColaCount: 20, effect: "모험 시작 시 필살기 턴을 1턴 단축하고, 턴 종료 시 체력을 5000 회복하며, 일당은 선장효과 무효 상태를 2턴 회복하고, 공격력을 1.7배, 회복력을 1.2배로 만든다", hasSpecial: "afterMRank5" },
+  { id: 8, name: "모비딕호", colaCount: 15380, superColaCount: 20, effect: "모험 시작 시 일당의 필살기 턴을 1턴 단축하고, 체력이 50% 남은 상태가 되며, 공격력을 1.55배, 체력을 1.6배로 만들고, 공격 시작 전 체력이 50% 이하라면 받는 데미지를 20% 감소시키고, 체력이 30% 이하라면 공격력을 1.2배 더 상승시킨다", hasSpecial: "afterMRank5" },
+  { id: 9, name: "빅톱호", colaCount: 15202, superColaCount: 20, effect: "모험 시작 시 필살기 턴을 1턴 단축하고, 코스트 40 이하 캐릭터의 공격력을 2.2배, 체력을 1.4배로 만들며, 코스트 41 이상 캐릭터의 공격력을 1.6배로 만든다", hasSpecial: "no" },
+  { id: 10, name: "베잔 블랙호", colaCount: 15180, superColaCount: 20, effect: "모험 시작 시 필살기 턴을 1턴 단축하고, 속 속성의 공격력을 1.8배, 체력을 1.5배로 만들며, 일당은 [힘][기] 슬롯도 [유리] 슬롯으로 취급하고, 선장효과 무효 상태를 1턴 회복하며, [속] 슬롯 출현율이 상승한다", hasSpecial: "afterMRank5" },
+  { id: 11, name: "아오키지의 자전거", colaCount: 15309, superColaCount: 20, effect: "모험 시작 시 타격형 캐릭터의 필살기 턴을 1턴 단축하고, 타격형 캐릭터의 공격력을 1.8배, 체력을 1.75배로 만들며, 일당은 봉쇄 상태를 1턴 회복하고, [고기] 슬롯 출현율이 크게 줄어든다", hasSpecial: "afterMRank5" },
+  { id: 12, name: "스트라이커", colaCount: 15240, superColaCount: 20, effect: "모험 시작 시 사격형 캐릭터의 필살기 턴을 2턴 단축하고, 사격형 캐릭터의 공격력을 1.8배, 체력을 1.35배로 만들며, 열상 상태인 적에게 주는 데미지가 1.05배가 된다", hasSpecial: "afterMRank5" },
+  { id: 13, name: "사우전드 써니호", colaCount: 15188, superColaCount: 20, effect: "일당의 공격력을 1.65배, 체력을 1.3배로 만들고, 일당은 공격력 감소, 봉쇄 상태를 1턴 회복하며, PERFECT 타이밍이 쉬워진다", hasSpecial: "yes" },
+  { id: 14, name: "드레드노트 사벨호", colaCount: 15150, superColaCount: 20, effect: "일당은 마비 상태를 1턴 회복하고, 일당의 체력을 1.5배로 만들며, 야심형과 강인형 캐릭터의 공격력을 200 올리고, 야심형과 강인형 캐릭터의 공격력을 1.4배로 만들며, 독, 맹독, 서서히 데미지 양이 늘어나는 독 상태의 적에게 주는 데미지가 1.2배가 되고, 턴 종료 시 적 전체에게 무 속성 데미지 20000을 준다", hasSpecial: "no" },
+  { id: 15, name: "구사 해적선", colaCount: 15242, superColaCount: 20, effect: "모험 시작 시 자유형과 사격형 캐릭터의 필살기 턴을 1턴 단축하고, 자유형과 사격형 캐릭터의 공격력을 1.75배, 체력을 1.4배로 만들며, 일당의 PERFECT 타이밍이 약간 쉬워지고, 일당은 체인 계수 증가량 감소 상태를 2턴 회복한다", hasSpecial: "yes" },
+  { id: 16, name: "방주 맥심", colaCount: 15234, superColaCount: 20, effect: "모험 시작 시 속 속성과 심 속성 캐릭터의 필살기 턴을 1턴 단축하고, 속 속성과 심 속성 캐릭터의 공격력을 1.75배, 체력을 1.4배로 만들며, 일당은 마비 상태를 1턴 회복하고, 턴 종료 시 체력을 4000 회복한다", hasSpecial: "yes" },
+  { id: 17, name: "레드 포스호", colaCount: 15244, superColaCount: 20, effect: "박식형과 사격형 캐릭터의 공격력을 1.75배, 체력을 1.4배로 만들고, 박식형과 사격형 캐릭터의 속성 일치 슬롯의 출현율이 상승하며, 일당은 공격력 감소 상태를 1턴 회복하고, 일당의 PERFECT 타이밍이 상당히 쉬워진다", hasSpecial: "afterMRank5" },
+  { id: 18, name: "사우전드 써니호 - 트레저 크루즈 2주년 기념 모델", colaCount: 1000, superColaCount: 0, effect: "일당의 공격력을 1.2배로 만든다", hasSpecial: "no" },
+  { id: 19, name: "태양의 해적단선", colaCount: 15168, superColaCount: 20, effect: "모험 시작 시 격투형 캐릭터의 필살기 턴을 1턴 단축하고, 격투형 캐릭터의 공격력을 1.5배, 체력을 1.5배로 만들고, 1번째 타입이 격투형 캐릭터의 공격력을 1.2배, 체력을 1.3배 더 상승시키고, PERFECT 타이밍이 쉬워진다", hasSpecial: "afterMRank5" },
+  { id: 20, name: "돈키호테 해적단선", colaCount: 15369, superColaCount: 20, effect: "모험 시작 시 야심형 캐릭터의 필살기 턴을 1턴 단축하고, 공격력을 1.8배, 체력을 1.5배로 만들며, 야심형 캐릭터의 PERFECT 타이밍이 쉬워진다", hasSpecial: "yes" },
+  { id: 21, name: "로켓맨", colaCount: 15228, superColaCount: 20, effect: "모험 시작 시 강인형 캐릭터의 필살기 턴을 1턴 단축하고, 공격력을 1.85배로 만들며, 일당의 체력을 30% 줄이고, 일당은 마비 상태를 1턴 회복하며, 강인형 캐릭터 수에 따라서 턴 종료 시 체력을 회복한다(최대 2500)", hasSpecial: "yes" },
+  { id: 22, name: "모비딕호 - 정상전쟁 속 용맹한 모습", colaCount: 1, superColaCount: 0, effect: "일당의 체력을 1.3배로 만든다", hasSpecial: "no" },
+  { id: 23, name: "가프의 군함", colaCount: 15189, superColaCount: 20, effect: "힘 속성 캐릭터와 심 속성 캐릭터의 공격력을 1.75배, 체력을 1.4배로 만들고, 일당이 체인 계수 가산 효과(증가는 제외), 체인 계수 고정 효과 필살기를 발동하면 해당 효과를 1턴 연장한다", hasSpecial: "afterMRank5" },
+  { id: 24, name: "폴라 탱 호", colaCount: 15300, superColaCount: 20, effect: "모험 시작 시 자유형과 참격형 캐릭터의 필살기 턴을 1턴 단축하고, 자유형과 참격형 캐릭터의 공격력을 1.6배, 체력을 1.25배로 만들며, PERFECT 타이밍이 약간 쉬워지고, 박식형 캐릭터의 경우 공격력을 1.2배 더 추가하며, 일당은 마비 상태를 1턴 회복한다", hasSpecial: "yes" },
+  { id: 25, name: "빅톱호 - 위대한 항로의 대향연", colaCount: 1, superColaCount: 0, effect: "코스트 20 이하 캐릭터의 공격력이 1.2배가 된다", hasSpecial: "no" },
+  { id: 26, name: "사우전드 써니호 - 코팅선", colaCount: 15156, superColaCount: 20, effect: "일당의 공격력을 1.65배로 만들고, 받는 데미지를 20% 감소시키며, 일당은 봉쇄 상태를 2턴 회복하고, PERFECT 타이밍이 쉬워진다", hasSpecial: "yes" },
+  { id: 27, name: "키자루 상륙·선전포고의 포탄 - 동란의 샤본디 제도", colaCount: 15256, superColaCount: 20, effect: "사격형의 공격력을 1.75배, 체력을 1.2배로 만들고, 모험 시작 시 사격형의 필살기 턴을 2턴 단축하며, 참격형의 공격력을 1.1배로 만들고, 모험 시작 시 참격형의 필살기 턴을 1턴 단축하며, PERFECT 타이밍이 쉬워진다", hasSpecial: "yes" },
+  { id: 28, name: "고잉 루피 선배 호", colaCount: 15194, superColaCount: 20, effect: "모험 시작 시 타격형 캐릭터의 필살기 턴을 1턴 단축하고, 일당은 PERFECT 타이밍이 약간 쉬워지며, 받는 데미지를 10% 감소시키고, 야심형 캐릭터의 공격력을 1.1배로 만들며, 일당에 타격형이 6명 있으면 일당의 공격력이 1.75배 더 상승하고, 체력을 1.6배로 만든다", hasSpecial: "yes" },
+  { id: 29, name: "스릴러 바크", colaCount: 15204, superColaCount: 20, effect: "모험 시작 시 기 속성과 지 속성의 필살기 턴을 1턴 단축하고, 일당의 속성 일치 슬롯의 출현율이 상승하며, 기 속성과 지 속성의 공격력을 1.5배, 체력을 1.25배로 만들고, 야심형과 강인형 캐릭터는 공격력이 1.15배 더 상승하며, 일당의 필살기로 슬롯 영향 증폭 효과가 발동되었을 때 슬롯 영향 증폭 효과를 1턴 연장한다", hasSpecial: "afterMRank5" },
+  { id: 30, name: "까마귀호", colaCount: 1, superColaCount: 0, effect: "사격형 캐릭터의 공격력을 1.2배로 만든다", hasSpecial: "yes" },
+  { id: 31, name: "사우전드 써니호", colaCount: 1, superColaCount: 0, effect: "일당의 공격력을 1.2배로 만든다", hasSpecial: "no" },
+  { id: 32, name: "사우전드 써니호 - 스페셜 기념 모델", colaCount: 1, superColaCount: 0, effect: "일당의 공격력을 1.2배로 만든다", hasSpecial: "no" },
+  { id: 33, name: "플라잉 더치맨호", colaCount: 15119, superColaCount: 20, effect: "모험 시작 시 필살기 턴을 1턴 단축하고, 일당의 공격력을 1.65배, 체력을 1.2배로 만들며, 획득하는 해적 EXP가 1.75배가 된다", hasSpecial: "yes" },
+  { id: 34, name: "마샬 D. 티치의 해적선", colaCount: 15244, superColaCount: 20, effect: "일당은 봉쇄 상태를 1턴 회복하고, 체력을 1.75배로 만들며, 모험 시작 시의 필살기 턴을 2턴 단축하고, 일당에 격투형, 참격형, 타격형, 사격형 캐릭터가 있을 경우 일당의 공격력을 1.75배로 만들며, 일당에 야심형, 강인형 캐릭터가 있을 경우 일당의 공격력을 1.1배로 만든다", hasSpecial: "no" },
+  { id: 35, name: "혁명군의 검은 새", colaCount: 15199, superColaCount: 20, effect: "모험 시작 시 필살기 턴을 1턴 단축하고, 힘 속성, 기 속성, 속 속성의 필살기 턴을 1턴 더 단축하며, 일당의 체력을 1.4배로 만들고, 받는 데미지를 10% 감소시킨다. 일당에 힘 속성, 기 속성, 속 속성이 있을 때 힘 속성, 기 속성, 속 속성의 공격력을 1.7배로 만들고, 일당에 심 속성, 지 속성이 없을 때 힘 속성, 기 속성, 속 속성의 공격력을 1.1배 더 상승시킨다", hasSpecial: "afterMRank5" },
+  { id: 36, name: "즈니샤", colaCount: 15202, superColaCount: 20, effect: "모험 시작 시 필살기 턴을 1턴 단축하고, 강인형과 박식형 캐릭터의 공격력을 1.85배, 체력을 1.5배로 만들며, 강인형과 박식형 캐릭터는 [고기][연] 슬롯도 [유리] 슬롯으로 취급하고, 일당은 필살기 봉쇄 상태를 1턴 회복하며, PERFECT 타이밍이 상당히 쉬워진다", hasSpecial: "afterMRank5" },
+  { id: 37, name: "섹시 폭시호", colaCount: 15208, superColaCount: 20, effect: "모험 시작 시 필살기 턴을 1턴 단축하고, 일당의 공격력을 1.5배로 만들며, 지연 중인 적에게 주는 데미지가 1.25배가 되고, 획득하는 베리가 2배, 획득하는 해적 EXP가 1.3배가 되며, PERFECT 타이밍이 쉬워진다", hasSpecial: "afterMRank5" },
+  { id: 38, name: "라분", colaCount: 1, superColaCount: 0, effect: "일당의 공격력을 1.2배로 만든다", hasSpecial: "no" },
+  { id: 39, name: "사우전드 써니호 - 원피스 트레저 크루즈 4주년 기념 모델", colaCount: 1, superColaCount: 0, effect: "일당의 공격력을 1.2배로 만든다", hasSpecial: "no" },
+  { id: 40, name: "노스트라 카스텔로 호", colaCount: 15244, superColaCount: 20, effect: "모험 시작 시 필살기 턴을 1턴 단축하고, 일당의 공격력을 1.6배, 체력을 1.3배로 만들며, 야심형과 사격형의 공격력이 1.2배 더 상승하고, 일당은 공격력 감소 상태를 1턴 회복하며, PERFECT 타이밍이 쉬워지고, 턴 종료 시 적 전체의 HP를 5% 감소시키지만, 일당에 참격형, 자유형, 강인형 캐릭터가 있을 때, 해당 타입의 수만큼 일당의 공격력이 감소한다", hasSpecial: "no" },
+  { id: 41, name: "퀸 마마 샹테 호", colaCount: 15260, superColaCount: 20, effect: "모험 시작 시 힘 속성, 기 속성, 속 속성의 필살기 턴을 1턴 단축하고, 일당의 속성 일치 슬롯 출현율이 상승하며, 체력을 1.5배로 만들고, [고기] 슬롯이 [셈라] 슬롯으로 바뀌며, 선장이 야심형 또는 강인형 캐릭터일 경우 힘 속성, 기 속성, 속 속성의 공격력을 1.7배로 만들고, PERFECT 3연속 달성 시 이후 힘 속성, 기 속성, 속 속성의 공격력을 약 1.8배로 만들며, 힘 속성, 기 속성, 속 속성은 PERFECT 공격으로도 [고기][셈라]를 얻을 수 있다", hasSpecial: "yes" },
+  { id: 42, name: "제르마 66의 배", colaCount: 15202, superColaCount: 20, effect: "일당의 [고기][연] 슬롯의 출현율이 상승하고, 일당은 필살기 턴 되돌리기를 1턴 회복한다. 일당에 모든 속성이 편성되어 있으면 모험 시작 시 필살기 턴을 2턴 단축하고, 일당의 공격력을 1.8배, 체력을 1.5배로 만든다. [고기][연] 슬롯이 나온 캐릭터의 공격력이 1.1배 더 상승하며, PERFECT 타이밍이 약간 쉬워진다", hasSpecial: "no" },
+  { id: 43, name: "고잉 메리호 - 원피스 트레저 크루즈 5주년 기념 모델", colaCount: 1, superColaCount: 0, effect: "일당의 공격력을 1.2배로 만든다", hasSpecial: "no" },
+  { id: 44, name: "호에", colaCount: 15256, superColaCount: 20, effect: "모험 시작 시 필살기 턴을 2턴 단축하고, 일당의 공격력을 1.65배로 만들며, PERFECT 타이밍이 쉬워지고, 획득하는 해적 EXP가 2배가 되며, 턴 종료 시 체력을 2000 회복한다", hasSpecial: "yes" },
+  { id: 45, name: "메가로", colaCount: 15232, superColaCount: 20, effect: "모험 시작 시 필살기 턴을 1턴 단축하고, 회복 효과를 데미지로 바꾸는 효과를 1턴 회복하며, 일당의 체력을 1.4배로 만들고, 선장이 심 속성 또는 지 속성이면 상단 캐릭터의 공격력을 1.7배, 선원의 공격력을 1.8배로 만들며, 선장의 회복력을 600 올리고, 받는 데미지를 15% 감소시킨다", hasSpecial: "yes" },
+  { id: 46, name: "사우전드 써니 호 - 플라잉 모델", colaCount: 1, superColaCount: 0, effect: "일당의 공격력을 1.2배로 만든다", hasSpecial: "no" },
+  { id: 47, name: "피스 오브 스파딜 호", colaCount: 15232, superColaCount: 20, effect: "모험 시작 시 필살기 턴을 2턴 단축하고, 일당은 선장효과 무효 상태를 1턴 회복하며, 강인형, 사격형, 자유형, 격투형 캐릭터의 체력을 1.25배, 공격력을 1.6배로 만들고, 공격 시작 전 남은 체력이 30% 이하일 때는 강인형, 사격형, 자유형, 격투형 캐릭터의 공격력을 1.8배로 만든다", hasSpecial: "afterMRank5" },
+  { id: 48, name: "거대 잉어", colaCount: 15202, superColaCount: 20, effect: "모험 시작 시 필살기 턴을 1턴 단축하고, 턴 종료 시 체력을 2000 회복하며, 획득하는 베리가 3배가 된다. 속 속성과 지 속성의 공격력을 1.7배, 체력을 1.35배로 만들고, 속 속성과 지 속성은 [고기] 슬롯도 [유리] 슬롯으로 취급하며, 공격 시작 시 체력이 가득 차 있으면 속 속성과 지 속성의 공격력을 약 1.85배로 만든다", hasSpecial: "yes" },
+  { id: 49, name: "그럿지 돌프 호", colaCount: 15202, superColaCount: 20, effect: "모험 시작 시 필살기 턴을 1턴 단축하고, 일당의 속성 일치 슬롯의 출현율이 상승하며, 일당의 필살기 봉쇄 상태를 1턴 회복하고, 참격형, 타격형, 박식형 캐릭터의 체력을 1.25배로 만들며, 무지개 슬롯, [和] 슬롯, 속성 일치 슬롯이 나온 같은 타입 캐릭터의 공격력을 1.75배, 평상시 1.6배로 만들고, 턴 종료 시 체력을 2000 회복한다", hasSpecial: "afterMRank5" },
+  { id: 50, name: "고잉 메리 호 - 이별의 모습", colaCount: 1, superColaCount: 0, effect: "일당의 공격력을 1.2배로 만든다", hasSpecial: "no" },
+  { id: 51, name: "샤크 슈퍼브 호", colaCount: 15009, superColaCount: 20, effect: "선장이 힘 속성, 기 속성, 속 속성이면 모험 시작 시 필살기 턴을 2턴 단축시키고, PERFECT 타이밍이 상당히 쉬워지며, [속][기] 슬롯도 [유리] 슬롯으로 취급하고, 일당의 공격력을 2배, 체력을 1.2배로 만들지만, 턴이 경과할 때마다 공격력이 감소한다(5턴 후 최소 공격력 1.75배)", hasSpecial: "no" },
+  { id: 52, name: "사우전드 써니 호 - 원피스 트레저 크루즈 6주년 기념 모델", colaCount: 1, superColaCount: 0, effect: "일당의 공격력을 1.2배로 만든다", hasSpecial: "no" },
+  { id: 53, name: "빅토리아 펑크 호", colaCount: 15202, superColaCount: 20, effect: "모험 시작 시 필살기 턴을 1턴 단축하고, 일당의 체력을 1.35배로 만들며, [연] 슬롯의 출현율이 약간 상승하고, 일당은 선장효과 무효 상태를 1턴 회복하며, [폭탄][강화 폭탄] 슬롯도 [유리] 슬롯으로 취급하고, 일당의 공격력을 1.7배로 만들며, [폭탄][강화 폭탄] 슬롯이 나오면 공격력을 약 2배로 만든다", hasSpecial: "yes" },
+  { id: 54, name: "리버럴 하인드 호", colaCount: 15202, superColaCount: 20, effect: "일당은 봉쇄 상태를 1턴 회복하며, 모험 시작 시 필살기 턴을 1턴 단축하고, 심 속성의 필살기 턴을 1턴 더 단축하며, 선장의 회복력을 500 올리고, 일당의 체력을 1.4배로 만들며, 턴 종료 시 체력을 1000 회복한다. 선장이 자유형, 참격형, 박식형이면 일당의 공격력을 1.6배로 만들고, 일당에 심 속성이 6명 있으면 추가로 1.2배 더 상승한다", hasSpecial: "yes" },
+  { id: 55, name: "수륙양용 노스트라 카스텔로 호", colaCount: 15202, superColaCount: 20, effect: "모험 시작 시 필살기 턴을 2턴 단축시키고, 힘 속성, 심 속성, 지 속성의 공격력을 1.65배, 체력을 1.4배로 만들며, 받는 데미지를 10% 감소시키고, 턴 종료 시 체력을 2000 회복하며, 힘 속성, 심 속성, 지 속성의 PERFECT 타이밍이 약간 쉬워지고, 공격 시작 전 체력이 가득 차 있을 때와 30% 이하일 때는 힘 속성, 심 속성, 지 속성의 공격력을 약 1.85배로 만든다", hasSpecial: "no" },
+  { id: 56, name: "오로 잭슨 호", colaCount: 15202, superColaCount: 20, effect: "모험 시작 시 필살기 턴을 1턴 단축하고, 자유형과 참격형 캐릭터의 공격력을 150 올리며, 자유형과 참격형 캐릭터의 공격력을 1.7배, 체력을 1.3배로 만든다. 자유형과 참격형 캐릭터는 [고기][연] 슬롯도 [유리] 슬롯으로 취급하고, PERFECT 타이밍이 상당히 쉬워지며, 속 속성과 심 속성의 공격력을 1.1배 더 상승시키고, 턴 종료 시 체력을 1000 회복한다", hasSpecial: "yes" },
+  { id: 57, name: "사우전드 써니 호 - 원피스 트레저 크루즈 7주년 기념 모델", colaCount: 1, superColaCount: 0, effect: "일당의 공격력을 1.2배로 만든다", hasSpecial: "no" },
+  { id: 58, name: "사우전드 써니 호 - 원피스 트레저 크루즈 8주년 기념 모델", colaCount: 1, superColaCount: 0, effect: "일당의 공격력을 1.5배로 만들고, 일당은 [연] 슬롯도 [유리] 슬롯으로 취급한다", hasSpecial: "no" },
+  { id: 59, name: "고래상어", colaCount: 15202, superColaCount: 20, effect: "모험 시작 시 필살기 턴을 2턴 단축하고, 일당의 공격력을 1.75배로 만들며, 모험 시작 시 우측 상단 캐릭터의 체력을 20000 상승시키고, 일당은 마비 상태를 1턴 회복하며, 일당은 [연][고기] 슬롯도 [유리] 슬롯으로 취급하고, PERFECT 타이밍이 쉬워지며, 획득하고 해적 EXP가 1.5배가 된다", hasSpecial: "no" },
+  { id: 60, name: "사우전드 써니 호 - 원피스 트레저 크루즈 9주년 기념 모델", colaCount: 1, superColaCount: 0, effect: "일당의 공격력을 1.5배로 만들고, PERFECT 타이밍이 약간 쉬워진다", hasSpecial: "no" },
+  { id: 61, name: "시키의 섬배", colaCount: 15500, superColaCount: 20, effect: "모험 시작 시 필살기 턴을 2턴 단축하고, 기 속성, 지 속성, 속 속성의 공격력을 1.65배, 체력을 1.45배로 만들며, [고기] 슬롯 출현율이 약간 상승하고, 일당은 선장효과 무효 상태를 1턴 회복하며, 공격 시작 전 체력이 가득 찬 상태일 때와 30% 이하일 때 기 속성, 지 속성, 속 속성의 공격력을 약 1.85배로 만든다", hasSpecial: "no" },
+  { id: 62, name: "화이트 타이거 호", colaCount: 15500, superColaCount: 20, effect: "모험 시작 시 필살기 턴을 1턴 단축하고, 사격형 캐릭터의 경우 1턴 더 단축하며, 사격형 캐릭터의 공격력을 1.9배, 체력을 1.25배로 만들고, 일당은 마비 상태를 1턴 회복하며, [심][지] 슬롯도 [유리] 슬롯으로 취급하고, PERFECT 타이밍이 상당히 쉬워진다", hasSpecial: "no" },
+  { id: 63, name: "캐터펄트 호", colaCount: 15500, superColaCount: 20, effect: "모험 시작 시 필살기 턴을 2턴 단축하고, 격투형 캐릭터의 공격력을 200 올리며, 힘 속성, 속 속성, 지 속성의 공격력을 1.75배, 체력을 1.25배로 만들고, 우측 상단 캐릭터의 공격력을 1.25배 더 상승시키며, 일당은 [심][기] 슬롯도 [유리] 슬롯으로 취급하고, PERFECT 타이밍이 쉬워진다", hasSpecial: "afterMRank5" },
+  { id: 64, name: "그랑 테조로", colaCount: 15500, superColaCount: 20, effect: "모험 시작 시 필살기 턴을 1턴 단축하고, 일당의 공격력을 1.7배, 체력을 1.4배로 만들며, [G][무지개] 슬롯이 나온 일당의 공격력을 약 2배로 만들고, 일당은 봉쇄, 공격력 감소 상태를 1턴 회복하며, 획득하는 베리가 3배가 되고, 격투형, 참격형, 타격형, 사격형, 자유형, 야심형, 박식형, 강인형 캐릭터가 일당에 있을 때, 일당의 필살기로 체인 계수 고정 효과가 발동된 경우 해당 효과를 1턴 연장한다", hasSpecial: "no" },
+  { id: 65, name: "사우전드 써니호 - 원피스 트레저 크루즈 10주년 기념 스페셜 모델", colaCount: 1, superColaCount: 0, effect: "일당의 공격력을 1.5배로 만들고, PERFECT 타이밍이 쉬워진다", hasSpecial: "no" },
+  { id: 66, name: "진공 로켓", colaCount: 1, superColaCount: 0, effect: "일당의 공격력을 1.2배로 만들고, PERFECT 타이밍이 쉬워진다", hasSpecial: "no" },
+  { id: 67, name: "사우전드 써니호 - 원피스 트레저 크루즈 11주년 기념 스페셜 모델", colaCount: 1, superColaCount: 0, effect: "일당의 공격력을 1.5배, 체력을 1.1배로 만들고, PERFECT 타이밍이 쉬워진다", hasSpecial: "no" }
 ];

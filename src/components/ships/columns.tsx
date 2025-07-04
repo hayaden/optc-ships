@@ -16,13 +16,14 @@ export const shipsColumns: ColumnDef<ShipOverview>[] = [
     ),
     enableHiding: false,
   },
-  {
+  {  
     accessorKey: "name",
     header: "Name",
     cell: ({ row }) => {
+      const BASE = import.meta.env.DEV ? "/optc-ships/" : "/";
       const shipId = String(row.getValue("id"));
       const shipName = String(row.getValue("name"));
-      const shipIcon = getShipThumbnail(shipId);
+      const shipIcon = `${BASE}${getShipThumbnail(shipId)}`;
       return (
         <div className="flex items-center gap-1">
           <img
