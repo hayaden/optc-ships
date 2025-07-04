@@ -1,19 +1,13 @@
 ---
-import { ShipDetail } from "@/components/shipDetail/ship-detail.tsx";
-import { details } from "@/data/details";
+import App from "../index.astro";
 import type { GetStaticPaths } from "astro";
 
-// ⭐️ 정적 경로 생성
+import { details } from "@/data/details";
+
 export const getStaticPaths = (() => {
   const ids = Object.keys(details);
   return ids.map((i) => ({ params: { shipId: i } }));
 }) satisfies GetStaticPaths;
-
-// ⭐️ shipId 읽기
-const { shipId } = Astro.params;
-
-// ⭐️ ship 정보 가져오기
-const ship = details[parseInt(shipId)];
 ---
 
-<ShipDetail shipId={shipId} ship={ship} base={"Astro.base"} />
+<App />

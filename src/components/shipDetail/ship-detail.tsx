@@ -25,14 +25,10 @@ import {
 /**
  * ⭐️ 핵심! Astro에서 base를 전달받는 props 타입 정의
  */
-type ShipDetailProps = {
-  base: string;
-};
-
-export function ShipDetail({ base }: ShipDetailProps) {
+export function ShipDetail() {
   const navigate = useNavigate();
   const { shipId } = useParams();
-  console.log("✅ base props 확인:", base);
+
   if (!shipId) {
     return null;
   }
