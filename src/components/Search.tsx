@@ -26,7 +26,7 @@ export function Search({ debounce = 500 }: { debounce?: number }) {
       <Input
         className="w-full mx-2"
         type="text"
-        placeholder="Filter ships..."
+        placeholder="선박 필터..."
         value={val}
         onChange={(e) => setVal(e.target.value)}
       />
