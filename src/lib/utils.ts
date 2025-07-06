@@ -97,7 +97,7 @@ export function replaceAndSanitizeEffect(text: string) {
     )
     .replaceAll(
      /\[유대결전\]/g,
-     '<span class="text-sm font-bold bg-indigo-700 text-white rounded px-1">유대결전</span>'
+     '<span class="text-sm font-bold bg-indigo-700 text-white rounded px-1">유대 결전</span>'
     )             
     .replaceAll(
       /\[무지개\]/g,
