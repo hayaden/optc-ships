@@ -72,6 +72,34 @@ export function replaceAndSanitizeEffect(text: string) {
       '<span class="px-1 rounded text-xs font-semibold align-text-bottom text-white WANO">와</span>',
     )
     .replaceAll(
+     /\[메인 스토리\]/g,
+     '<span class="text-sm font-bold bg-purple-700 text-white rounded px-1">메인 스토리</span>'
+    )
+    .replaceAll(
+     /\[특훈의 숲\]/g,
+     '<span class="text-sm font-bold bg-green-700 text-white rounded px-1">특훈의 숲</span>'
+    )
+    .replaceAll(
+     /\[레일리 교환소\]/g,
+     '<span class="text-sm font-bold bg-orange-700 text-white rounded px-1">레일리 교환소</span>'
+    )
+    .replaceAll(
+     /\(현재 획득 불가\)/g,
+     '<span class="text-sm font-bold bg-red-700 text-white rounded px-1">현재 획득 불가</span>'
+    )
+    .replaceAll(
+     /\[타임 모험\]/g,
+     '<span class="text-sm font-bold bg-teal-700 text-white rounded px-1">타임 모험</span>'
+    ) 
+    .replaceAll(
+     /\[트레저맵\]/g,
+     '<span class="text-sm font-bold bg-indigo-700 text-white rounded px-1">트레저맵</span>'
+    )
+    .replaceAll(
+     /\[유대결전\]/g,
+     '<span class="text-sm font-bold bg-indigo-700 text-white rounded px-1">유대결전</span>'
+    )             
+    .replaceAll(
       /\[무지개\]/g,
       '<span class="px-1 rounded text-xs font-semibold align-text-bottom text-background text-black RAINBOW">무지개</span>',
     )
