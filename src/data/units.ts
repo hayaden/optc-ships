@@ -70,5 +70,7 @@ export const units: ShipOverview[] = [
   { id: 64, name: "그랑 테조로", colaCount: 15500, superColaCount: 20, effect: "모험 시작 시 필살기 턴을 1턴 단축하고, 일당의 공격력을 1.7배, 체력을 1.4배로 만들며, [G][무지개] 슬롯이 나온 일당의 공격력을 약 2배로 만들고, 일당은 봉쇄, 공격력 감소 상태를 1턴 회복하며, 획득하는 베리가 3배가 되고, 격투형, 참격형, 타격형, 사격형, 자유형, 야심형, 박식형, 강인형 캐릭터가 일당에 있을 때, 일당의 필살기로 체인 계수 고정 효과가 발동된 경우 해당 효과를 1턴 연장한다", hasSpecial: "no" },
   { id: 65, name: "사우전드 써니호 - 원피스 트레저 크루즈 10주년 기념 스페셜 모델", colaCount: 0, superColaCount: 0, effect: "일당의 공격력을 1.5배로 만들고, PERFECT 타이밍이 쉬워진다", hasSpecial: "no" },
   { id: 66, name: "진공 로켓", colaCount: 0, superColaCount: 0, effect: "일당의 공격력을 1.2배로 만들고, PERFECT 타이밍이 쉬워진다", hasSpecial: "no" },
-  { id: 67, name: "사우전드 써니호 - 원피스 트레저 크루즈 11주년 기념 스페셜 모델", colaCount: 0, superColaCount: 0, effect: "일당의 공격력을 1.5배, 체력을 1.1배로 만들고, PERFECT 타이밍이 쉬워진다", hasSpecial: "no" }
+  { id: 67, name: "사우전드 써니호 - 원피스 트레저 크루즈 11주년 기념 스페셜 모델", colaCount: 0, superColaCount: 0, effect: "일당의 공격력을 1.5배, 체력을 1.1배로 만들고, PERFECT 타이밍이 쉬워진다", hasSpecial: "no" },
+  { id: 68, name: "쥬얼리 마르게리타 호", colaCount: 15500, superColaCount: 20, effect: "모험 시작 시 [힘]속성, [심]속성, [지]속성의 필살기 턴을 2턴 단축시키고, 우측 상단 캐릭터의 체력을 20000 상승시키며, [힘]속성, [심]속성, [지]속성의 공격력을 1.75배, [고기] 슬롯이 나왔을 때는 약 2배로 만들고, 일당은 선장효과 무효 상태를 1턴 회복하며, [힘][고기] 슬롯도 [유리] 슬롯으로 취급하고, [보니 해적단][최악의 세대][초인계]의 공격력을 1.1배 더 상승시킨다", hasSpecial: "yes" }
+
 ];
