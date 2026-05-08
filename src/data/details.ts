@@ -1000,5 +1000,4 @@ export const details: Record<number, ShipInfo> = {
   }
 
 
-  }
-};
+  };
